@@ -1,17 +1,19 @@
 # Grades Calculator
 
-## What will the application do?
+## Description
+
+### What will the application do?
 
 The application will help users calculate their course averages, term averages, overall averages, as well as provide a range of possible marks they can receive.
 
-## Who will use it?
+### Who will use it?
 
 Students who want to know how they are doing in a course / term **numerically**.
 
-## Why is this project of interest to you?
+### Why is this project of interest to you?
 
 This project is interesting to me, because I often find myself using an excel sheet to calculate my averages. I would
-have to manually input the grades, weighting, and the math formulas for the calculation.
+have to **manually** input the grades, weighting, and the math formulas for the calculation.
 
 ## User story
 
