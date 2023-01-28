@@ -6,11 +6,12 @@ The application will help users calculate their course averages, term averages, 
 
 ## Who will use it?
 
-Students that want to know how they are doing in a course / term.
+Students who want to know how they are doing in a course / term **numerically**.
 
 ## Why is this project of interest to you?
 
-This project is interesting to me, because I often find myself using an excel sheet to calculate my averages.
+This project is interesting to me, because I often find myself using an excel sheet to calculate my averages. I would
+have to manually input the grades, weighting, and the math formulas for the calculation.
 
 ## User story
 
@@ -19,5 +20,3 @@ This project is interesting to me, because I often find myself using an excel sh
 - As a user, I want to know my current weighted overall average 
 - As a user, I want to know my current weighted course average
 - As a user, I want to calculate my GPA out of 4.3 or 4.0.
-
-An example of text with **bold** and *italic* fonts.  
