@@ -64,20 +64,21 @@ public class Main {
     }
 
     private static void addCourse() {
-        System.out.println("Please input your course in this format: <course name> <weighting> <grade>");
+        System.out.println("Please input the course name");
         String courseName = scanner.nextLine();
         listOfCourses.add(new Course(courseName));
     }
 
     private static void printCourses() {
         if (listOfCourses.isEmpty()) {
-            System.out.println("Add a course!");
+            System.out.println("You don't have any courses yet. Add a course!");
             return;
         }
         System.out.println("A list of your courses!");
         for (int i = 0; i < listOfCourses.size(); i++) {
-            System.out.print(i + 1 + ": ");
+            System.out.print("Course " + (i + 1) + ": ");
             listOfCourses.get(i).printCourse();
         }
+        System.out.println();
     }
 }

@@ -38,6 +38,4 @@ public class GradingGroup {
     public void printGradingGroup() {
         System.out.println("\t" + groupName + ": grade: " + grade + "% | " + "weight: " + weight + "%");
     }
-
-
 }
