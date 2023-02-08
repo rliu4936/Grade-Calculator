@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
-    static final List<String> listOfCommands = Arrays.asList("Add Course", "Add Grading Groups", "Quit");
+    static final List<String> listOfCommands = Arrays.asList("Add Course", "Delete Course", "Quit");
     static ArrayList<Course> listOfCourses = new ArrayList<Course>();
     static boolean run = true;
 
@@ -41,19 +41,13 @@ public class Main {
                 addCourse();
                 break;
             case "2":
-                addGradingGroups();
+                deleteCourse();
                 break;
             case "3":
                 run = false;
                 break;
 
         }
-    }
-
-    private static void addGradingGroups() {
-        System.out.println("Select the course (number): ");
-        int indexOfCourse = scanner.nextInt();
-        listOfCourses.get(indexOfCourse - 1).addGradingGroups(scanner);
     }
 
     private static void printCommands() {
@@ -66,7 +60,15 @@ public class Main {
     private static void addCourse() {
         System.out.println("Please input the course name");
         String courseName = scanner.nextLine();
-        listOfCourses.add(new Course(courseName));
+        Course course = new Course(courseName);
+        listOfCourses.add(course);
+        course.addGradingGroups(scanner);
+    }
+
+    private static void deleteCourse() {
+        System.out.println("select which course to delete");
+        int num = scanner.nextInt();
+        listOfCourses.remove(num - 1);
     }
 
     private static void printCourses() {

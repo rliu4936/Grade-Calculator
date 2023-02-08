@@ -33,7 +33,9 @@ public class Course {
     }
 
     public void addGradingGroups(Scanner sc) {
+        System.out.println("input how many grading groups there are");
         int numberOfGradingGroups = sc.nextInt();
+        System.out.println("List your grading groups <name> <weight (out of 100)> <grade (out of 100)>");
         for (int i = 0; i < numberOfGradingGroups; i++) {
             String groupName = sc.next();
             Integer weighting = sc.nextInt();
