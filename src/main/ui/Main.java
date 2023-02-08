@@ -10,32 +10,28 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    static Scanner scanner = new Scanner(System.in);
     static final List<String> listOfCommands = Arrays.asList("Add Course", "Delete Course", "Quit");
-    static ArrayList<Course> listOfCourses = new ArrayList<Course>();
-    static boolean run = true;
+
+    static Scanner sc;
+    static ArrayList<Course> listOfCourses;
+    static boolean run;
 
     public static void main(String[] args) throws IOException {
+        listOfCourses = new ArrayList<Course>();
+        run = true;
+        sc = new Scanner(System.in);
+
         while (run) {
-            clearScreen();
             printCourses();
+            printAverage();
             printCommands();
             inputCommand();
-
-        }
-    }
-
-    private static void clearScreen() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println();
         }
     }
 
     private static void inputCommand() {
-        System.out.println("Please input your command (number or full string command): ");
-        System.out.println();
-        String command = scanner.nextLine();
-
+        System.out.println("Please input your command (number): ");
+        String command = sc.nextLine();
         switch (command) {
             case "1":
                 addCourse();
@@ -46,7 +42,6 @@ public class Main {
             case "3":
                 run = false;
                 break;
-
         }
     }
 
@@ -59,17 +54,31 @@ public class Main {
 
     private static void addCourse() {
         System.out.println("Please input the course name");
-        String courseName = scanner.nextLine();
+        String courseName = sc.nextLine();
         Course course = new Course(courseName);
         listOfCourses.add(course);
-        course.addGradingGroups(scanner);
+        course.addGradingGroups(sc);
     }
 
     private static void deleteCourse() {
         System.out.println("select which course to delete");
-        int num = scanner.nextInt();
+        int num = sc.nextInt();
+        sc.nextLine();
         listOfCourses.remove(num - 1);
     }
+
+    private static void printAverage() {
+        if (listOfCourses.size() == 0) {
+            return;
+        }
+        double sum = 0;
+        for (Course c : listOfCourses) {
+            sum += c.getGrade();
+        }
+        sum /= listOfCourses.size();
+        System.out.println("Your average is: " + sum + "%");
+    }
+
 
     private static void printCourses() {
         if (listOfCourses.isEmpty()) {

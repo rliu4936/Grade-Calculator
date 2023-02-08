@@ -7,10 +7,12 @@ import java.util.Scanner;
 public class Course {
     private String courseName;
     private ArrayList<GradingGroup> gradingGroups;
+    private double grade;
 
     public Course(String courseName) {
         this.courseName = courseName;
         this.gradingGroups = new ArrayList<>();
+        this.grade = 0;
     }
 
     public String getCourseName() {
@@ -40,11 +42,13 @@ public class Course {
             String groupName = sc.next();
             Integer weighting = sc.nextInt();
             Integer grade = sc.nextInt();
+            sc.nextLine();
             addGradingGroup(groupName, weighting, grade);
         }
+        grade = calculateGrade();
     }
 
-    public double calculateGrade() {
+    private double calculateGrade() {
         int grade = 0;
         for (GradingGroup gg : gradingGroups) {
             grade += gg.getGrade() * gg.getWeight();
@@ -57,4 +61,7 @@ public class Course {
     }
 
 
+    public double getGrade() {
+        return grade;
+    }
 }
