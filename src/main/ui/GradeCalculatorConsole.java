@@ -111,7 +111,7 @@ public class GradeCalculatorConsole {
             return;
         }
         for (GradingGroup gg : c.getGradingGroups()) {
-            gg.printGradingGroup();
+            printGradingGroup(gg);
         }
     }
 
@@ -127,5 +127,9 @@ public class GradeCalculatorConsole {
             sc.nextLine();
             c.addGradingGroup(groupName, weighting, grade);
         }
+    }
+
+    public static void printGradingGroup(GradingGroup gc) {
+        System.out.println("\t" + gc.getGroupName() + ": grade: " + gc.getGrade() + "% | " + "weight: " + gc.getWeight() + "%");
     }
 }

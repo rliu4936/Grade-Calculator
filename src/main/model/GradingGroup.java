@@ -19,7 +19,7 @@ public class GradingGroup {
         return grade;
     }
 
-    public void printGradingGroup() {
-        System.out.println("\t" + groupName + ": grade: " + grade + "% | " + "weight: " + weight + "%");
+    public String getGroupName() {
+        return groupName;
     }
 }
