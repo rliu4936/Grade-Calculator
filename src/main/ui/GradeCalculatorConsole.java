@@ -130,6 +130,7 @@ public class GradeCalculatorConsole {
     }
 
     public static void printGradingGroup(GradingGroup gc) {
-        System.out.println("\t" + gc.getGroupName() + ": grade: " + gc.getGrade() + "% | " + "weight: " + gc.getWeight() + "%");
+        System.out.println("\t" + gc.getGroupName() + ": grade: " + gc.getGrade() + "% | " + "weight: "
+                + gc.getWeight() + "%");
     }
 }
