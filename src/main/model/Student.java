@@ -17,7 +17,6 @@ public class Student {
         listOfCourses.add(c);
     }
 
-
     public double calculateAverage() {
         double sum = 0;
         for (Course c : listOfCourses) {

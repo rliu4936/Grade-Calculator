@@ -14,6 +14,14 @@ class MyModelTest {
     }
 
     @Test
+    void testAddGradingGroup() {
+        Course c = new Course("CPSC 110");
+        c.addGradingGroup("Final", 30, 80);
+
+        assertEquals(1, c.getGradingGroups().size());
+    }
+
+    @Test
     void testCalculateGrade() {
         Course c = new Course("MATH 100");
 

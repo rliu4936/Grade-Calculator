@@ -127,6 +127,5 @@ public class GradeCalculatorConsole {
             sc.nextLine();
             c.addGradingGroup(groupName, weighting, grade);
         }
-        c.setGrade(c.calculateGrade());
     }
 }

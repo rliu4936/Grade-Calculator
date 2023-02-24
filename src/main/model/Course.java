@@ -22,10 +22,6 @@ public class Course {
         return courseName;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
     public double calculateGrade() {
         int grade = 0;
         for (GradingGroup gg : gradingGroups) {
@@ -41,9 +37,5 @@ public class Course {
 
     public double getGrade() {
         return grade;
-    }
-
-    public void setGrade(double n) {
-        grade = n;
     }
 }
