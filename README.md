@@ -18,7 +18,6 @@ have to **manually** input the grades, weighting, and the math formulas for the 
 ## User story
 
 - As a user, I want to predict a range of possible marks that I can receive from a course
-- As a user, I want to predict a range of possible averages that I can receive from a term
 - As a user, I want to know my current weighted overall average 
 - As a user, I want to know my current weighted course average
 - As a user, I want to calculate my GPA out of 4.3 or 4.0.

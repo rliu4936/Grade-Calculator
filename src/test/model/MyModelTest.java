@@ -56,4 +56,15 @@ class MyModelTest {
         assertEquals(1, s.getListOfCourses().size());
     }
 
+    @Test
+    void testGetCourseName() {
+        Course c = new Course("MATH 101");
+        assertEquals("MATH 101", c.getCourseName());
+    }
+
+    @Test
+    void testGetGroupName() {
+        GradingGroup gg = new GradingGroup("MT1", 30, 90);
+        assertEquals("MT1", gg.getGroupName());
+    }
 }
