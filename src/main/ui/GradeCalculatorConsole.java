@@ -3,6 +3,7 @@ package ui;
 
 import model.Course;
 import model.GradingGroup;
+import model.Student;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,23 +11,22 @@ import java.util.List;
 import java.util.Scanner;
 
 // Grade Calculator Console Application
-public class GradeCalculator {
-    static final List<String> listOfCommands = Arrays.asList("Add Course", "Delete Course", "Quit");
+public class GradeCalculatorConsole {
+    static final List<String> listOfCommands = Arrays.asList("Add Course", "Delete Course", "Calculate Overall Average",
+            "Display All Courses", "Quit");
 
     static Scanner sc;
-    static ArrayList<Course> listOfCourses;
     static boolean run;
+    static Student student;
 
     // MODIFIES: this
     // EFFECTS: processes user input
-    public GradeCalculator() {
-        listOfCourses = new ArrayList<Course>();
+    public GradeCalculatorConsole() {
+        student = new Student();
         run = true;
         sc = new Scanner(System.in);
 
         while (run) {
-            printCourses();
-            printAverage();
             printCommands();
             inputCommand();
         }
@@ -45,6 +45,12 @@ public class GradeCalculator {
                 deleteCourse();
                 break;
             case "3":
+                printAverage();
+                break;
+            case "4":
+                printCourses();
+                break;
+            case "5":
                 run = false;
                 break;
         }
@@ -63,7 +69,7 @@ public class GradeCalculator {
         System.out.println("Please input the course name");
         String courseName = sc.nextLine();
         Course course = new Course(courseName);
-        listOfCourses.add(course);
+        student.addCourse(course);
         addGradingGroups(course);
     }
 
@@ -71,32 +77,32 @@ public class GradeCalculator {
         System.out.println("select which course to delete");
         int num = sc.nextInt();
         sc.nextLine();
-        listOfCourses.remove(num - 1);
+        student.getListOfCourses().remove(num - 1);
     }
 
     // EFFECTS: Prints the average grade for all courses
     private static void printAverage() {
-        if (listOfCourses.size() == 0) {
+        if (student.getListOfCourses().size() == 0) {
             return;
         }
         double sum = 0;
-        for (Course c : listOfCourses) {
+        for (Course c : student.getListOfCourses()) {
             sum += c.getGrade();
         }
-        sum /= listOfCourses.size();
+        sum /= student.getListOfCourses().size();
         System.out.println("Your average is: " + sum + "%");
     }
 
     // EFFECTS: Prints a list of all the added courses
     private static void printCourses() {
-        if (listOfCourses.isEmpty()) {
+        if (student.getListOfCourses().isEmpty()) {
             System.out.println("You don't have any courses yet. Add a course!");
             return;
         }
         System.out.println("A list of your courses!");
-        for (int i = 0; i < listOfCourses.size(); i++) {
+        for (int i = 0; i < student.getListOfCourses().size(); i++) {
             System.out.print("Course " + (i + 1) + ": ");
-            printCourse(listOfCourses.get(i));
+            printCourse(student.getListOfCourses().get(i));
         }
         System.out.println();
     }

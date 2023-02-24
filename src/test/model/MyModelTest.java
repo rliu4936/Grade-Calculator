@@ -1,7 +1,22 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MyModelTest {
-    // delete or rename this class!
+    Student s;
+
+    @BeforeEach
+    void setup() {
+        s = new Student();
+    }
+
+    @Test
+    void testAddCourse() {
+        Course c = new Course("MATH 100");
+        s.addCourse(c);
+        assertEquals(1, s.getListOfCourses().size());
+    }
 }
