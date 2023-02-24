@@ -7,6 +7,8 @@ public class Course {
     private String courseName;
     private ArrayList<GradingGroup> gradingGroups;
     private double grade;
+    private double lowestGrade;
+    private double highestGrade;
 
     public Course(String courseName) {
         this.courseName = courseName;
@@ -22,20 +24,35 @@ public class Course {
         return courseName;
     }
 
-    public double calculateGrade() {
-        int grade = 0;
+    public void calculateGrade() {
+        int sumGrade = 0;
+        int sumWeight = 0;
+        double sum = 0;
         for (GradingGroup gg : gradingGroups) {
-            grade += gg.getGrade() * gg.getWeight();
+            sumGrade += gg.getGrade();
+            sumWeight += gg.getWeight();
+            sum += gg.getGrade() * gg.getWeight();
+
         }
-        return grade / 100.0;
+        grade = sum / sumWeight;
+        lowestGrade = sum / 100;
+        highestGrade = 100 - (100 - grade) * sumWeight / 100;
     }
 
     public void addGradingGroup(String groupName, Integer weighting, Integer grade) {
         gradingGroups.add(new GradingGroup(groupName, weighting, grade));
-        this.grade = calculateGrade();
+        calculateGrade();
     }
 
     public double getGrade() {
         return grade;
+    }
+
+    public double getLowestGrade() {
+        return lowestGrade;
+    }
+
+    public double getHighestGrade() {
+        return highestGrade;
     }
 }

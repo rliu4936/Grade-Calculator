@@ -25,11 +25,15 @@ class MyModelTest {
     void testCalculateGrade() {
         Course c = new Course("MATH 100");
 
-        c.addGradingGroup("Final", 50, 80);
+        c.addGradingGroup("Final", 30, 80);
         c.addGradingGroup("MT1", 25, 90);
         c.addGradingGroup("MT2", 25, 100);
 
-        assertEquals(87.5, c.calculateGrade());
+        c.calculateGrade();
+
+        assertEquals(89.375, c.getGrade());
+        assertEquals(71.5, c.getLowestGrade());
+        assertEquals(91.5, c.getHighestGrade());
     }
 
     @Test
@@ -52,4 +56,5 @@ class MyModelTest {
         s.addCourse(c);
         assertEquals(1, s.getListOfCourses().size());
     }
+
 }

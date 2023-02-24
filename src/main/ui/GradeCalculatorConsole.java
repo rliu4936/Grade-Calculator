@@ -105,7 +105,7 @@ public class GradeCalculatorConsole {
 
     // EFFECTS: Print a single course
     public static void printCourse(Course c) {
-        System.out.println(c.getCourseName() + ": " + c.calculateGrade() + "%");
+        System.out.println(c.getCourseName() + ": " + c.getGrade() + "%");
         if (c.getGradingGroups().isEmpty()) {
             System.out.println("\tNo Grading Group Yet!");
             return;

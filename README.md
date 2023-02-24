@@ -4,7 +4,7 @@
 
 ### What will the application do?
 
-The application will help users calculate their course averages, term averages, overall averages, as well as provide a range of possible marks they can receive.
+The application will help users calculate their course averages, overall averages, as well as provide a range of possible marks they can receive.
 
 ### Who will use it?
 
@@ -22,7 +22,6 @@ have to **manually** input the grades, weighting, and the math formulas for the 
 - As a user, I want to know my current weighted overall average 
 - As a user, I want to know my current weighted course average
 - As a user, I want to calculate my GPA out of 4.3 or 4.0.
-- As a user, I want to add a term to a degree
-- As a user, I want to add a course to a term
-- As a user, I want to add categories to a course
-- As a user, I want to add assignments to a category
+- As a user, I want to add a course to a student
+- As a user, I want to add grading groups to a course
+- As a user, I want to assign weighting and a grade to a grading group
