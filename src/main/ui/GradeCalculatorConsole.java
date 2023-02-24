@@ -85,12 +85,8 @@ public class GradeCalculatorConsole {
         if (student.getListOfCourses().size() == 0) {
             return;
         }
-        double sum = 0;
-        for (Course c : student.getListOfCourses()) {
-            sum += c.getGrade();
-        }
-        sum /= student.getListOfCourses().size();
-        System.out.println("Your average is: " + sum + "%");
+
+        System.out.println("Your average is: " + student.calculateAverage() + "%");
     }
 
     // EFFECTS: Prints a list of all the added courses

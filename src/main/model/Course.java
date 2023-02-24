@@ -36,8 +36,8 @@ public class Course {
 
     public void addGradingGroup(String groupName, Integer weighting, Integer grade) {
         gradingGroups.add(new GradingGroup(groupName, weighting, grade));
+        this.grade = calculateGrade();
     }
-
 
     public double getGrade() {
         return grade;

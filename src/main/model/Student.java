@@ -16,4 +16,14 @@ public class Student {
     public void addCourse(Course c) {
         listOfCourses.add(c);
     }
+
+
+    public double calculateAverage() {
+        double sum = 0;
+        for (Course c : listOfCourses) {
+            sum += c.getGrade();
+        }
+        sum /= listOfCourses.size();
+        return sum;
+    }
 }
