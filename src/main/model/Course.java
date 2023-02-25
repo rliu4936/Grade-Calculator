@@ -16,14 +16,6 @@ public class Course {
         this.grade = 0;
     }
 
-    public ArrayList<GradingGroup> getGradingGroups() {
-        return gradingGroups;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
     public void calculateGrade() {
         int sumWeight = 0;
         double sum = 0;
@@ -76,5 +68,13 @@ public class Course {
 
     public double getHighestGrade() {
         return highestGrade;
+    }
+
+    public ArrayList<GradingGroup> getGradingGroups() {
+        return gradingGroups;
+    }
+
+    public String getCourseName() {
+        return courseName;
     }
 }
