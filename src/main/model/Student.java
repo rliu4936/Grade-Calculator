@@ -25,4 +25,8 @@ public class Student {
         sum /= listOfCourses.size();
         return sum;
     }
+
+    public void deleteCourse(int i) {
+        listOfCourses.remove(i);
+    }
 }
