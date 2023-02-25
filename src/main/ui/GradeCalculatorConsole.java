@@ -35,7 +35,7 @@ public class GradeCalculatorConsole {
     // MODIFIES: this
     // EFFECTS: processes user command
     private static void inputCommand() {
-        System.out.println("Please input your command (number): ");
+        System.out.println("Please input your command");
         String command = sc.nextLine();
         switch (command) {
             case "1":
@@ -58,9 +58,8 @@ public class GradeCalculatorConsole {
 
     // EFFECTS: displays menu of options to user
     private static void printCommands() {
-        System.out.println("Commands:");
         for (int i = 0; i < listOfCommands.size(); i++) {
-            System.out.println(i + 1 + ". " + listOfCommands.get(i));
+            System.out.println(i + 1 + " -> " + listOfCommands.get(i));
         }
     }
 
@@ -74,6 +73,7 @@ public class GradeCalculatorConsole {
     }
 
     private static void deleteCourse() {
+        listAllCourses();
         System.out.println("select which course to delete");
         int num = sc.nextInt();
         sc.nextLine();
@@ -95,7 +95,6 @@ public class GradeCalculatorConsole {
             System.out.println("You don't have any courses yet. Add a course!");
             return;
         }
-        System.out.println("A list of your courses!");
         for (int i = 0; i < student.getListOfCourses().size(); i++) {
             System.out.print("Course " + (i + 1) + ": ");
             printCourse(student.getListOfCourses().get(i));
@@ -105,7 +104,7 @@ public class GradeCalculatorConsole {
 
     // EFFECTS: Print a single course
     public static void printCourse(Course c) {
-        System.out.println(c.getCourseName() + ": " + c.getGrade() + "%");
+        System.out.println(c.getCourseName() + ": " + c.getGrade() + "%" + " | " + c.findLetterGrade());
         if (c.getGradingGroups().isEmpty()) {
             System.out.println("\tNo Grading Group Yet!");
             return;
@@ -113,11 +112,17 @@ public class GradeCalculatorConsole {
         for (GradingGroup gg : c.getGradingGroups()) {
             printGradingGroup(gg);
         }
+        if (c.getLowestGrade() < c.getHighestGrade()) {
+            System.out.println("Your lowest possible grade for this course is: " + c.getLowestGrade() + "%");
+            System.out.println("Your highest possible grade for this course is: " + c.getHighestGrade() + "%");
+        } else {
+            System.out.println("Your course grade is: " + c.getGrade());
+        }
     }
 
     // EFFECTS: Add a grading group to the course
     public static void addGradingGroups(Course c) {
-        System.out.println("input how many grading groups there are");
+        System.out.println("Please input how many grading groups there are");
         int numberOfGradingGroups = sc.nextInt();
         System.out.println("List your grading groups <name> <weight (out of 100)> <grade (out of 100)>");
         for (int i = 0; i < numberOfGradingGroups; i++) {
@@ -132,5 +137,12 @@ public class GradeCalculatorConsole {
     public static void printGradingGroup(GradingGroup gc) {
         System.out.println("\t" + gc.getGroupName() + ": grade: " + gc.getGrade() + "% | " + "weight: "
                 + gc.getWeight() + "%");
+    }
+
+    public static void listAllCourses() {
+        List<Course> lc = student.getListOfCourses();
+        for (int i = 0; i < lc.size(); i++) {
+            System.out.println((i + 1) + " -> " + lc.get(i).getCourseName());
+        }
     }
 }

@@ -25,14 +25,11 @@ public class Course {
     }
 
     public void calculateGrade() {
-        int sumGrade = 0;
         int sumWeight = 0;
         double sum = 0;
         for (GradingGroup gg : gradingGroups) {
-            sumGrade += gg.getGrade();
             sumWeight += gg.getWeight();
             sum += gg.getGrade() * gg.getWeight();
-
         }
         grade = sum / sumWeight;
         lowestGrade = sum / 100;
@@ -42,6 +39,31 @@ public class Course {
     public void addGradingGroup(String groupName, Integer weighting, Integer grade) {
         gradingGroups.add(new GradingGroup(groupName, weighting, grade));
         calculateGrade();
+    }
+
+    public String findLetterGrade() {
+        if (grade >= 90) {
+            return "A+";
+        } else if (grade >= 85) {
+            return "A";
+        } else if (grade >= 80) {
+            return "A-";
+        } else if (grade >= 76) {
+            return "B+";
+        } else if (grade >= 72) {
+            return "B";
+        } else if (grade >= 68) {
+            return "B-";
+        } else if (grade >= 64) {
+            return "C+";
+        } else if (grade >= 60) {
+            return "C";
+        } else if (grade >= 55) {
+            return "C-";
+        } else if (grade >= 50) {
+            return "D";
+        }
+        return "F";
     }
 
     public double getGrade() {

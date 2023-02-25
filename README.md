@@ -20,7 +20,7 @@ have to **manually** input the grades, weighting, and the math formulas for the 
 - As a user, I want to predict a range of possible marks that I can receive from a course
 - As a user, I want to know my current weighted overall average 
 - As a user, I want to know my current weighted course average
-- As a user, I want to calculate my GPA out of 4.3 or 4.0.
+- As a user, I want to know my letter grade
 - As a user, I want to add a course to a student
 - As a user, I want to add grading groups to a course
 - As a user, I want to assign weighting and a grade to a grading group
