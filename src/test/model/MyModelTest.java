@@ -67,4 +67,30 @@ class MyModelTest {
         GradingGroup gg = new GradingGroup("MT1", 30, 90);
         assertEquals("MT1", gg.getGroupName());
     }
+
+    @Test
+    void testDeleteCourse() {
+        Course c = new Course("CPSC 110");
+        s.addCourse(c);
+        assertEquals(1, s.getListOfCourses().size());
+
+        s.deleteCourse(0);
+        assertEquals(0, s.getListOfCourses().size());
+    }
+
+    @Test
+    void testFindLetterGrade() {
+        Course c1 = new Course("MATH 100");
+        c1.addGradingGroup("Final", 100, 90);
+        assertEquals("A+", c1.findLetterGrade());
+
+        Course c2 = new Course("MATH 101");
+        c2.addGradingGroup("Final", 100, 50);
+        assertEquals("D", c2.findLetterGrade());
+
+        Course c3 = new Course("MATH 102");
+        c3.addGradingGroup("Final", 100, 45);
+        assertEquals("F", c3.findLetterGrade());
+
+    }
 }
