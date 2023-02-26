@@ -3,6 +3,7 @@ package model;
 
 import java.util.ArrayList;
 
+// A Course has a name, list of grading groups, grade, the lowes grade, and the highest grade
 public class Course {
     private String courseName;
     private ArrayList<GradingGroup> gradingGroups;
@@ -16,6 +17,7 @@ public class Course {
         this.grade = 0;
     }
 
+    // EFFECTS: Calculates the grade based on the grading groups
     public void calculateGrade() {
         int sumWeight = 0;
         double sum = 0;
@@ -28,11 +30,14 @@ public class Course {
         highestGrade = 100 - (100 - grade) * sumWeight / 100;
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds a new grading group
     public void addGradingGroup(String groupName, Integer weighting, Integer grade) {
         gradingGroups.add(new GradingGroup(groupName, weighting, grade));
         calculateGrade();
     }
 
+    // EFFECTS: return the letter grade based on the percent
     public String findLetterGrade() {
         if (grade >= 90) {
             return "A+";

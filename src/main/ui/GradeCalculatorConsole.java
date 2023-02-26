@@ -12,9 +12,13 @@ import java.util.Scanner;
 
 // Grade Calculator Console Application
 public class GradeCalculatorConsole {
-    static final List<String> listOfCommands = Arrays.asList("Add Course", "Delete Course",
+    static final List<String> listOfCommands = Arrays.asList(
+            "Add Course",
+            "Delete Course",
             "Add Grading Group to Course",
-            "Calculate Overall Average", "Display All Courses", "Quit");
+            "Calculate Overall Average",
+            "Display All Courses",
+            "Quit");
 
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
@@ -27,7 +31,7 @@ public class GradeCalculatorConsole {
     static Student student;
 
     // MODIFIES: this
-    // EFFECTS: processes user input
+    // EFFECTS: Initialize a new Grade Calculator, and processes user input
     public GradeCalculatorConsole() {
         student = new Student();
         run = true;
@@ -39,8 +43,7 @@ public class GradeCalculatorConsole {
         }
     }
 
-    // MODIFIES: this
-    // EFFECTS: processes user command
+    // EFFECTS: Processes user command
     private static void inputCommand() {
         colorPrint("Please input your command", CYAN);
         String command = sc.nextLine();
@@ -66,6 +69,7 @@ public class GradeCalculatorConsole {
         }
     }
 
+    // EFFECTS: Processes inputs for adding grading groups to a course
     private static void addGradingGroupToCourse() {
         listAllCourses();
         colorPrint("Select which course you want to add the grading group to", CYAN);
@@ -82,7 +86,8 @@ public class GradeCalculatorConsole {
         }
     }
 
-    // EFFECTS: adds a course
+    // MODIFIES: student
+    // EFFECTS: Processes the inputs for adding a course
     private static void addCourse() {
         colorPrint("Please input the course name", CYAN);
         String courseName = sc.nextLine();
@@ -91,6 +96,8 @@ public class GradeCalculatorConsole {
         addGradingGroups(course);
     }
 
+    // MODIFIES: student
+    // EFFECTS: Processes user inputs for deleting a course
     private static void deleteCourse() {
         listAllCourses();
         if (student.getListOfCourses().size() == 0) {
@@ -124,7 +131,7 @@ public class GradeCalculatorConsole {
         }
     }
 
-    // EFFECTS: Print a single course
+    // EFFECTS: Print a single course including each respectively list of grading groups
     public static void printCourse(Course c) {
         colorPrint(c.getCourseName() + ": " + c.getGrade() + "%" + " | " + c.findLetterGrade(), GREEN);
         if (c.getGradingGroups().isEmpty()) {
@@ -161,11 +168,13 @@ public class GradeCalculatorConsole {
         }
     }
 
+    // EFFECTS: print out a single grading group
     public static void printGradingGroup(GradingGroup gc) {
         colorPrint("\t" + gc.getGroupName() + ": grade: " + gc.getGrade() + "% | " + "weight: "
                 + gc.getWeight() + "%", GREEN);
     }
 
+    // EFFECTS: print out all courses
     public static void listAllCourses() {
         List<Course> lc = student.getListOfCourses();
         for (int i = 0; i < lc.size(); i++) {
@@ -173,6 +182,7 @@ public class GradeCalculatorConsole {
         }
     }
 
+    // EFFECTS: print out a string with colors
     public static void colorPrint(String s, String c) {
         System.out.println(c + s + RESET);
     }

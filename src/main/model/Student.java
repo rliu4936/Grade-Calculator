@@ -13,6 +13,8 @@ public class Student {
         return listOfCourses;
     }
 
+    // MODIFIES: this
+    // EFFECTS: Adds a course to the listofCourses
     public void addCourse(Course c) {
         listOfCourses.add(c);
     }
