@@ -32,6 +32,7 @@ public class Course {
         highestGrade = 100 - (100 - grade) * sumWeight / 100;
     }
 
+    // REQUIRES: weighting and grade to be between 0 and 100
     // MODIFIES: this
     // EFFECTS: Adds a new grading group
     public void addGradingGroup(String groupName, Integer weighting, Integer grade) {
