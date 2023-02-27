@@ -5,7 +5,6 @@ import model.Course;
 import model.GradingGroup;
 import model.Student;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -43,6 +42,7 @@ public class GradeCalculatorConsole {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: Processes user command
     private static void inputCommand() {
         colorPrint("Please input your command", CYAN);
@@ -69,6 +69,8 @@ public class GradeCalculatorConsole {
         }
     }
 
+    // REQUIRES: user input to be one of the listed numbers
+    // MODIFIES: this
     // EFFECTS: Processes inputs for adding grading groups to a course
     private static void addGradingGroupToCourse() {
         listAllCourses();
@@ -86,7 +88,7 @@ public class GradeCalculatorConsole {
         }
     }
 
-    // MODIFIES: student
+    // MODIFIES: this
     // EFFECTS: Processes the inputs for adding a course
     private static void addCourse() {
         colorPrint("Please input the course name", CYAN);
@@ -96,7 +98,8 @@ public class GradeCalculatorConsole {
         addGradingGroups(course);
     }
 
-    // MODIFIES: student
+    // REQUIRES: user input to be one of the listed numbers
+    // MODIFIES: this
     // EFFECTS: Processes user inputs for deleting a course
     private static void deleteCourse() {
         listAllCourses();
@@ -150,6 +153,8 @@ public class GradeCalculatorConsole {
         System.out.println();
     }
 
+    // REQUIRES: user input to be >= 0, and weighting and grading to be a number between 0 and 100
+    // MODIFIES: c
     // EFFECTS: Add a grading group to the course
     public static void addGradingGroups(Course c) {
         colorPrint("Please input how many grading groups you want to add", CYAN);

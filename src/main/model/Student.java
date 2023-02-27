@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+// A Student has a list of courses that they are currently taking or finished taking
 public class Student {
     private ArrayList<Course> listOfCourses;
 
@@ -19,6 +20,7 @@ public class Student {
         listOfCourses.add(c);
     }
 
+    // EFFECTS: Calculates the average mark of a course
     public double calculateAverage() {
         double sum = 0;
         for (Course c : listOfCourses) {
@@ -28,6 +30,9 @@ public class Student {
         return sum;
     }
 
+    // REQUIRES: a valid index i
+    // MODIFIES: this
+    // EFFECTS: Removes a course from student
     public void deleteCourse(int i) {
         listOfCourses.remove(i);
     }

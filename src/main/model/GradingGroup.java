@@ -1,6 +1,6 @@
 package model;
 
-// Grading Group has a name, weight, and grade
+// Many Grading Groups make up a course. Each Grading Group has a name, weight, and grade
 public class GradingGroup {
     private String groupName;
     private Integer weight;
