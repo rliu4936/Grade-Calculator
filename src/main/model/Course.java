@@ -21,6 +21,18 @@ public class Course {
         this.grade = 0;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Course c = (Course) o;
+        return courseName.equals(c.getCourseName()) && gradingGroups.equals(c.getGradingGroups());
+    }
+
     // MODIFIES: this
     // EFFECTS: Calculates the grade based on the grading groups
     public void calculateGrade() {

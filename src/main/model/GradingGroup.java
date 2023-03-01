@@ -14,6 +14,20 @@ public class GradingGroup {
         this.grade = grade;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GradingGroup gg = (GradingGroup) o;
+        return groupName.equals(gg.getGroupName())
+                && weight == gg.getWeight()
+                && grade == gg.getGrade();
+    }
+
     public Integer getWeight() {
         return weight;
     }

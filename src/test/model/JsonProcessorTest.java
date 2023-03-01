@@ -45,10 +45,6 @@ public class JsonProcessorTest {
             fail("Can not read from file");
         }
 
-        assertEquals(2, s2.getListOfCourses().size());
-        assertEquals(2, s2.getListOfCourses().get(0).getGradingGroups().size());
-        assertEquals("MATH 101", s2.getListOfCourses().get(0).getCourseName());
-        assertEquals("MT1", s2.getListOfCourses().get(0).getGradingGroups().get(0).getGroupName());
-        assertEquals("MATH 102", s2.getListOfCourses().get(1).getCourseName());
+        assertEquals(s1, s2);
     }
 }

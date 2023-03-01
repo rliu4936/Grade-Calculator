@@ -13,6 +13,18 @@ public class Student {
         listOfCourses = new ArrayList<Course>();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Student s = (Student) o;
+        return listOfCourses.equals(s.getListOfCourses());
+    }
+
     public ArrayList<Course> getListOfCourses() {
         return listOfCourses;
     }
