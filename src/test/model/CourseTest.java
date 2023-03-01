@@ -2,7 +2,7 @@ package model;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CourseTest {
     @Test
@@ -24,6 +24,20 @@ public class CourseTest {
     void testGetCourseName() {
         Course c = new Course("MATH 101");
         assertEquals("MATH 101", c.getCourseName());
+    }
+
+    @Test
+    void testEquals() {
+        Course c = new Course("MATH 101");
+        Course c2 = new Course("MATH 101");
+        assertEquals(c, c2);
+    }
+
+    @Test
+    void testNotEquals() {
+        Course c = new Course("MATH 101");
+        Course c2 = new Course("MATH 102");
+        assertNotEquals(c, c2);
     }
 
     @Test

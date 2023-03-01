@@ -3,7 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentTest {
     Student s;
@@ -42,5 +42,20 @@ public class StudentTest {
         s.addCourse(c2);
 
         assertEquals(85, s.calculateAverage());
+    }
+
+    @Test
+    void testNotEquals() {
+        Student s2 = new Student();
+        Course c = new Course("MATH 200");
+        s2.addCourse(c);
+
+        assertNotEquals(s, s2);
+    }
+
+    @Test
+    void testEquals() {
+        Student s2 = new Student();
+        assertEquals(s, s2);
     }
 }
