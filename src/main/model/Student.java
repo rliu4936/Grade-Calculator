@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 // A Student has a list of courses that they are currently taking or finished taking
@@ -35,5 +38,13 @@ public class Student {
     // EFFECTS: Removes a course from student
     public void deleteCourse(int i) {
         listOfCourses.remove(i);
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+
+        json.put("listOfCourses", listOfCourses);
+
+        return json;
     }
 }

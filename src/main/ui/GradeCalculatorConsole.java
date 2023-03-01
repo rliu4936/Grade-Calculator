@@ -4,19 +4,26 @@ package ui;
 import model.Course;
 import model.GradingGroup;
 import model.Student;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 // Grade Calculator Console Application
 public class GradeCalculatorConsole {
+    private static final String JSON_STORE = "./data/student.json";
     static final List<String> listOfCommands = Arrays.asList(
             "Add Course",
             "Delete Course",
             "Add Grading Group to Course",
             "Calculate Overall Average",
             "Display All Courses",
+            "Save File",
+            "Read File",
             "Quit");
 
     public static final String RESET = "\u001B[0m";
@@ -28,6 +35,8 @@ public class GradeCalculatorConsole {
     static Scanner sc;
     static boolean run;
     static Student student;
+    static JsonWriter writer;
+    static JsonReader reader;
 
     // MODIFIES: this
     // EFFECTS: Initialize a new Grade Calculator, and processes user input
@@ -35,6 +44,8 @@ public class GradeCalculatorConsole {
         student = new Student();
         run = true;
         sc = new Scanner(System.in);
+        writer = new JsonWriter(JSON_STORE);
+        reader = new JsonReader(JSON_STORE);
 
         while (run) {
             printCommands();
@@ -44,6 +55,7 @@ public class GradeCalculatorConsole {
 
     // MODIFIES: this
     // EFFECTS: Processes user command
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     private static void inputCommand() {
         colorPrint("Please input your command", CYAN);
         String command = sc.nextLine();
@@ -64,8 +76,30 @@ public class GradeCalculatorConsole {
                 printCourses();
                 break;
             case "6":
+                saveFile();
+                break;
+            case "7":
+                readFile();
+                break;
+            case "8":
                 run = false;
                 break;
+        }
+    }
+
+    private static void readFile() {
+        try {
+            reader.read(student);
+        } catch (IOException e) {
+            System.out.println("Unable to read to file: " + JSON_STORE);
+        }
+    }
+
+    private static void saveFile() {
+        try {
+            writer.save(student);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
 

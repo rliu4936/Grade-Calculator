@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 // Many Grading Groups make up a course. Each Grading Group has a name, weight, and grade
 public class GradingGroup {
     private String groupName;
@@ -23,4 +25,5 @@ public class GradingGroup {
     public String getGroupName() {
         return groupName;
     }
+
 }
