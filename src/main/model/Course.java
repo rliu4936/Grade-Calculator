@@ -21,14 +21,9 @@ public class Course {
         this.grade = 0;
     }
 
+    // EFFECTS: returns true if the other course has the same name and the same grading groups as this
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
         Course c = (Course) o;
         return courseName.equals(c.getCourseName()) && gradingGroups.equals(c.getGradingGroups());
     }

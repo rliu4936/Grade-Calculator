@@ -1,6 +1,5 @@
 package model;
 
-import org.json.JSONObject;
 
 // Many Grading Groups make up a course. Each Grading Group has a name, weight, and grade
 public class GradingGroup {
@@ -14,14 +13,9 @@ public class GradingGroup {
         this.grade = grade;
     }
 
+    // EFFECTS: returns true if the other grading group has the same group name, weight, and grade as this
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
         GradingGroup gg = (GradingGroup) o;
         return groupName.equals(gg.getGroupName())
                 && weight == gg.getWeight()

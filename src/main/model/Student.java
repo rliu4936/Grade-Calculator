@@ -13,14 +13,9 @@ public class Student {
         listOfCourses = new ArrayList<Course>();
     }
 
+    //EFFECTS: returns true if the other students has the same list of courses as this
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
         Student s = (Student) o;
         return listOfCourses.equals(s.getListOfCourses());
     }
@@ -52,6 +47,7 @@ public class Student {
         listOfCourses.remove(i);
     }
 
+    // EFFECTS: returns this student as a json object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
 
