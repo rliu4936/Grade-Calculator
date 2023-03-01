@@ -4,8 +4,7 @@ package ui;
 import model.Course;
 import model.GradingGroup;
 import model.Student;
-import persistence.JsonReader;
-import persistence.JsonWriter;
+import persistence.JsonProcessor;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,7 +14,7 @@ import java.util.Scanner;
 
 // Grade Calculator Console Application
 public class GradeCalculatorConsole {
-    private static final String JSON_STORE = "./data/student.json";
+    private static final String FILE_LOCATION = "./data/student.json";
     static final List<String> listOfCommands = Arrays.asList(
             "Add Course",
             "Delete Course",
@@ -35,8 +34,7 @@ public class GradeCalculatorConsole {
     static Scanner sc;
     static boolean run;
     static Student student;
-    static JsonWriter writer;
-    static JsonReader reader;
+    static JsonProcessor jp;
 
     // MODIFIES: this
     // EFFECTS: Initialize a new Grade Calculator, and processes user input
@@ -44,8 +42,7 @@ public class GradeCalculatorConsole {
         student = new Student();
         run = true;
         sc = new Scanner(System.in);
-        writer = new JsonWriter(JSON_STORE);
-        reader = new JsonReader(JSON_STORE);
+        jp = new JsonProcessor(FILE_LOCATION);
 
         while (run) {
             printCommands();
@@ -89,17 +86,17 @@ public class GradeCalculatorConsole {
 
     private static void readFile() {
         try {
-            reader.read(student);
+            jp.read(student);
         } catch (IOException e) {
-            System.out.println("Unable to read to file: " + JSON_STORE);
+            System.out.println("Unable to read to file: " + FILE_LOCATION);
         }
     }
 
     private static void saveFile() {
         try {
-            writer.save(student);
+            jp.save(student);
         } catch (FileNotFoundException e) {
-            System.out.println("Unable to write to file: " + JSON_STORE);
+            System.out.println("Unable to write to file: " + FILE_LOCATION);
         }
     }
 
