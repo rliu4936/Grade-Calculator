@@ -38,6 +38,11 @@ public class CourseTest {
         Course c = new Course("MATH 101");
         Course c2 = new Course("MATH 102");
         assertNotEquals(c, c2);
+
+        Course cc = new Course("MATH 102");
+        Course cc2 = new Course("MATH 102");
+        cc.addGradingGroup("1", 30, 40);
+        assertNotEquals(cc, cc2);
     }
 
     @Test
