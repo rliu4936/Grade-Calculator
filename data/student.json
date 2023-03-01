@@ -1,0 +1,60 @@
+{"listOfCourses": [
+    {
+        "courseName": "CPSC 210",
+        "lowestGrade": 12.6,
+        "highestGrade": 97.6,
+        "grade": 84,
+        "gradingGroups": [{
+            "groupName": "MT1",
+            "grade": 84,
+            "weight": 15
+        }]
+    },
+    {
+        "courseName": "CPSC 121",
+        "lowestGrade": 0,
+        "highestGrade": 86,
+        "grade": 0,
+        "gradingGroups": [{
+            "groupName": "MT1",
+            "grade": 0,
+            "weight": 14
+        }]
+    },
+    {
+        "courseName": "MATH 200",
+        "lowestGrade": 26,
+        "highestGrade": 96,
+        "grade": 86.66666666666667,
+        "gradingGroups": [
+            {
+                "groupName": "MT1",
+                "grade": 80,
+                "weight": 20
+            },
+            {
+                "groupName": "HW",
+                "grade": 100,
+                "weight": 10
+            }
+        ]
+    },
+    {
+        "courseName": "MATH 221",
+        "lowestGrade": 29.2,
+        "highestGrade": 99.2,
+        "grade": 97.33333333333333,
+        "gradingGroups": [
+            {
+                "groupName": "MT1",
+                "grade": 96,
+                "weight": 20
+            },
+            {
+                "groupName": "HW",
+                "grade": 100,
+                "weight": 10
+            }
+        ]
+    }
+]}

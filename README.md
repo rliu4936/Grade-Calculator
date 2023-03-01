@@ -24,3 +24,5 @@ have to **manually** input the grades, weighting, and the math formulas for the 
 - As a user, I want to add a course to a student
 - As a user, I want to add grading groups to a course
 - As a user, I want to assign weighting and a grade to a grading group
+- As a user, I want to be able to save the courses and grades that I entered (if I so choose)
+- As a user, I want to be able to be able to load my courses and grades from file (if I so choose)

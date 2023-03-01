@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-// Represents a writer that writes JSON representation of workroom to file
+// Reads Json to Student and Writes Student to Json
 public class JsonProcessor {
     private static final int TAB = 4;
     private PrintWriter writer;
@@ -30,6 +30,7 @@ public class JsonProcessor {
         writer.close();
     }
 
+    // MODIFIES: student
     // EFFECTS: load a student from json file
     public void read(Student student) throws IOException {
         String jsonData = readFile(source);

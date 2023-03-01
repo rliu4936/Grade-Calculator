@@ -1,0 +1,38 @@
+{"listOfCourses": [
+    {
+        "courseName": "MATH 101",
+        "lowestGrade": 82.5,
+        "highestGrade": 82.5,
+        "grade": 82.5,
+        "gradingGroups": [
+            {
+                "groupName": "MT1",
+                "grade": 80,
+                "weight": 50
+            },
+            {
+                "groupName": "MT2",
+                "grade": 85,
+                "weight": 50
+            }
+        ]
+    },
+    {
+        "courseName": "MATH 102",
+        "lowestGrade": 72,
+        "highestGrade": 72,
+        "grade": 72,
+        "gradingGroups": [
+            {
+                "groupName": "MT1",
+                "grade": 57,
+                "weight": 50
+            },
+            {
+                "groupName": "MT2",
+                "grade": 87,
+                "weight": 50
+            }
+        ]
+    }
+]}

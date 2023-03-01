@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import persistence.JsonProcessor;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class JsonProcessorTest {
     }
 
     @Test
-    public void saveAndReadTest() throws IOException {
+    public void saveAndReadTest() {
         Student s1 = new Student();
         Course c1 = new Course("MATH 101");
         c1.addGradingGroup("MT1", 50, 80);
@@ -31,9 +31,19 @@ public class JsonProcessorTest {
         s1.addCourse(c1);
         s1.addCourse(c2);
 
-        jp.save(s1);
+        try {
+            jp.save(s1);
+        } catch (IOException e) {
+            fail("Can not write to file");
+        }
+
         Student s2 = new Student();
-        jp.read(s2);
+
+        try  {
+            jp.read(s2);
+        } catch (IOException e) {
+            fail("Can not read from file");
+        }
 
         assertEquals(2, s2.getListOfCourses().size());
         assertEquals(2, s2.getListOfCourses().get(0).getGradingGroups().size());
