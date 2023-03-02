@@ -86,9 +86,7 @@ public class GradeCalculatorConsole {
 
     private static void readFile() {
         try {
-            Student emptyStudent = new Student();
-            jp.read(emptyStudent);
-            student = emptyStudent;
+            student = jp.read();
             colorPrint("File Loaded", GREEN);
         } catch (IOException e) {
             System.out.println("Unable to read to file: " + FILE_LOCATION);

@@ -30,10 +30,12 @@ public class JsonProcessor {
 
     // MODIFIES: student
     // EFFECTS: load a student from json file
-    public void read(Student student) throws IOException {
+    public Student read() throws IOException {
+        Student emptyStudent = new Student();
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
-        parseStudent(jsonObject, student);
+        parseStudent(jsonObject, emptyStudent);
+        return emptyStudent;
     }
 
     // EFFECTS: reads source file as string and returns it
