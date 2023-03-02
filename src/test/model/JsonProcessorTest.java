@@ -40,7 +40,7 @@ public class JsonProcessorTest {
         Student s2 = new Student();
 
         try  {
-            jp.read(s2);
+            s2 = jp.read();
         } catch (IOException e) {
             fail("Can not read from file");
         }
