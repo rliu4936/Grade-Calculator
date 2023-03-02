@@ -5,7 +5,6 @@ import model.Student;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -15,7 +14,6 @@ import java.util.stream.Stream;
 // Reads Json to Student and Writes Student to Json
 public class JsonProcessor {
     private static final int TAB = 4;
-    private PrintWriter writer;
     private String source;
 
     // EFFECTS: constructs writer to write to destination file
@@ -25,7 +23,7 @@ public class JsonProcessor {
 
     // EFFECTS: write a json file from a student
     public void save(Student s) throws FileNotFoundException {
-        writer = new PrintWriter(new File(source));
+        PrintWriter writer = new PrintWriter(new File(source));
         writer.print(s.toJson().toString(TAB));
         writer.close();
     }

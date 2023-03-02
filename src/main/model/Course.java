@@ -1,9 +1,5 @@
 package model;
 
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 // Many courses make up a student. A Course has a name, list of grading groups, grade, the lowes grade,
