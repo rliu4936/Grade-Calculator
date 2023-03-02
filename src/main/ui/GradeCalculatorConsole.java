@@ -22,7 +22,7 @@ public class GradeCalculatorConsole {
             "Calculate Overall Average",
             "Display All Courses",
             "Save File",
-            "Read File",
+            "Load File",
             "Quit");
 
     public static final String RESET = "\u001B[0m";
@@ -86,7 +86,10 @@ public class GradeCalculatorConsole {
 
     private static void readFile() {
         try {
-            jp.read(student);
+            Student emptyStudent = new Student();
+            jp.read(emptyStudent);
+            student = emptyStudent;
+            colorPrint("File Loaded", GREEN);
         } catch (IOException e) {
             System.out.println("Unable to read to file: " + FILE_LOCATION);
         }
@@ -95,6 +98,7 @@ public class GradeCalculatorConsole {
     private static void saveFile() {
         try {
             jp.save(student);
+            colorPrint("File Saved", GREEN);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + FILE_LOCATION);
         }
