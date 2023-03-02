@@ -56,5 +56,16 @@
                 "weight": 10
             }
         ]
+    },
+    {
+        "courseName": "Course 5",
+        "lowestGrade": 90,
+        "highestGrade": 90,
+        "grade": 90,
+        "gradingGroups": [{
+            "groupName": "FINAL",
+            "grade": 90,
+            "weight": 100
+        }]
     }
 ]}
