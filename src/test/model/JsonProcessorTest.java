@@ -4,14 +4,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import persistence.JsonProcessor;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class JsonProcessorTest {
     private static final String TEST_FILE_LOCATION = "./data/test.json";
     JsonProcessor jp;
+
     @BeforeEach
     public void setup() {
         jp = new JsonProcessor(TEST_FILE_LOCATION);
@@ -39,7 +40,7 @@ public class JsonProcessorTest {
 
         Student s2 = new Student();
 
-        try  {
+        try {
             s2 = jp.read();
         } catch (IOException e) {
             fail("Can not read from file");

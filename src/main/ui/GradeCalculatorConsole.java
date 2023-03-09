@@ -1,6 +1,5 @@
 package ui;
 
-
 import model.Course;
 import model.GradingGroup;
 import model.Student;
@@ -14,7 +13,11 @@ import java.util.Scanner;
 
 // Grade Calculator Console Application
 public class GradeCalculatorConsole {
-    private static final String FILE_LOCATION = "./data/student.json";
+    public static final String RESET = "\u001B[0m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String CYAN = "\u001B[36m";
     static final List<String> listOfCommands = Arrays.asList(
             "Add Course",
             "Delete Course",
@@ -24,13 +27,7 @@ public class GradeCalculatorConsole {
             "Save File",
             "Load File",
             "Quit");
-
-    public static final String RESET = "\u001B[0m";
-    public static final String RED = "\u001B[31m";
-    public static final String GREEN = "\u001B[32m";
-    public static final String YELLOW = "\u001B[33m";
-    public static final String CYAN = "\u001B[36m";
-
+    private static final String FILE_LOCATION = "./data/student.json";
     static Scanner sc;
     static boolean run;
     static Student student;
@@ -114,13 +111,6 @@ public class GradeCalculatorConsole {
         addGradingGroups(student.getListOfCourses().get(num - 1));
     }
 
-    // EFFECTS: displays menu of options to user
-    private static void printCommands() {
-        for (int i = 0; i < listOfCommands.size(); i++) {
-            colorPrint((i + 1) + " -> " + listOfCommands.get(i), YELLOW);
-        }
-    }
-
     // MODIFIES: this
     // EFFECTS: Processes the inputs for adding a course
     private static void addCourse() {
@@ -144,6 +134,33 @@ public class GradeCalculatorConsole {
         int num = sc.nextInt();
         sc.nextLine();
         student.deleteCourse(num - 1);
+    }
+
+    // REQUIRES: user input to be >= 0, and weighting and grading to be a number between 0 and 100
+    // MODIFIES: c
+    // EFFECTS: Add a grading group to the course
+    public static void addGradingGroups(Course c) {
+        colorPrint("Please input how many grading groups you want to add", CYAN);
+        int numberOfGradingGroups = sc.nextInt();
+        sc.nextLine();
+        if (numberOfGradingGroups == 0) {
+            return;
+        }
+        colorPrint("List your grading groups <name> <weight (out of 100)> <grade (out of 100)>", CYAN);
+        for (int i = 0; i < numberOfGradingGroups; i++) {
+            String groupName = sc.next();
+            Integer weighting = sc.nextInt();
+            Integer grade = sc.nextInt();
+            sc.nextLine();
+            c.addGradingGroup(groupName, weighting, grade);
+        }
+    }
+
+    // EFFECTS: displays menu of options to user
+    private static void printCommands() {
+        for (int i = 0; i < listOfCommands.size(); i++) {
+            colorPrint((i + 1) + " -> " + listOfCommands.get(i), YELLOW);
+        }
     }
 
     // EFFECTS: Prints the average grade for all courses
@@ -184,26 +201,6 @@ public class GradeCalculatorConsole {
             colorPrint("Your course grade is: " + c.getGrade() + "%", GREEN);
         }
         System.out.println();
-    }
-
-    // REQUIRES: user input to be >= 0, and weighting and grading to be a number between 0 and 100
-    // MODIFIES: c
-    // EFFECTS: Add a grading group to the course
-    public static void addGradingGroups(Course c) {
-        colorPrint("Please input how many grading groups you want to add", CYAN);
-        int numberOfGradingGroups = sc.nextInt();
-        sc.nextLine();
-        if (numberOfGradingGroups == 0) {
-            return;
-        }
-        colorPrint("List your grading groups <name> <weight (out of 100)> <grade (out of 100)>", CYAN);
-        for (int i = 0; i < numberOfGradingGroups; i++) {
-            String groupName = sc.next();
-            Integer weighting = sc.nextInt();
-            Integer grade = sc.nextInt();
-            sc.nextLine();
-            c.addGradingGroup(groupName, weighting, grade);
-        }
     }
 
     // EFFECTS: print out a single grading group

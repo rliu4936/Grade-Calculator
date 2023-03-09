@@ -12,6 +12,7 @@ public class Student {
         listOfCourses = new ArrayList<Course>();
     }
 
+    //REQUIRES: Object o must have a class of Student
     //EFFECTS: returns true if the other students has the same list of courses as this
     @Override
     public boolean equals(Object o) {

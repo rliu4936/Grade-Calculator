@@ -5,7 +5,10 @@ import model.Student;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -13,7 +16,7 @@ import java.util.stream.Stream;
 
 // Reads Json to Student and Writes Student to Json
 public class JsonProcessor {
-    private static final int TAB = 4;
+    private static int TAB = 4;
     private String source;
 
     // EFFECTS: constructs writer to write to destination file
@@ -66,5 +69,4 @@ public class JsonProcessor {
         }
         s.addCourse(c);
     }
-
 }

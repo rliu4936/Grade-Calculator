@@ -2,7 +2,8 @@ package model;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class GradingGroupTest {
     @Test
@@ -12,6 +13,7 @@ public class GradingGroupTest {
 
         assertEquals(1, c.getGradingGroups().size());
     }
+
     @Test
     void testGetGroupName() {
         GradingGroup gg = new GradingGroup("MT1", 30, 90);

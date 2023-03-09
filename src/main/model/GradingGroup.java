@@ -13,6 +13,7 @@ public class GradingGroup {
         this.grade = grade;
     }
 
+    //REQUIRES: Object o must have a class of GradingGroup
     // EFFECTS: returns true if the other grading group has the same group name, weight, and grade as this
     @Override
     public boolean equals(Object o) {

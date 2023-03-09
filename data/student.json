@@ -1,11 +1,18 @@
 {"listOfCourses": [{
-    "courseName": "MATH 100",
-    "lowestGrade": 90,
-    "highestGrade": 90,
-    "grade": 90,
-    "gradingGroups": [{
-        "groupName": "FINAL",
-        "grade": 90,
-        "weight": 100
-    }]
+    "courseName": "CPSC 210",
+    "lowestGrade": 17.6,
+    "highestGrade": 97.6,
+    "grade": 88,
+    "gradingGroups": [
+        {
+            "groupName": "MT1",
+            "grade": 84,
+            "weight": 15
+        },
+        {
+            "groupName": "Tickets",
+            "grade": 100,
+            "weight": 5
+        }
+    ]
 }]}
