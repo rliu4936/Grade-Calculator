@@ -14,17 +14,18 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-// Reads Json to Student and Writes Student to Json
+// Reads from Json stored in file to Student and Writes Student to a Json file
 public class JsonProcessor {
     private static final int TAB = 4;
     private String source;
 
-    // EFFECTS: constructs writer to write to destination file
+    // EFFECTS: constructs processor to read and write to the file source
     public JsonProcessor(String source) {
         this.source = source;
     }
 
-    // EFFECTS: write a json file from a student
+    // EFFECTS: write a json file from a student.
+    // throws FileNotFoundException if file is not found
     public void save(Student s) throws FileNotFoundException {
         PrintWriter writer = new PrintWriter(new File(source));
         writer.print(s.toJson().toString(TAB));
@@ -33,6 +34,7 @@ public class JsonProcessor {
 
     // MODIFIES: student
     // EFFECTS: load a student from json file
+    // throws IOException if an error occurs reading data from file
     public Student read() throws IOException {
         Student emptyStudent = new Student();
         String jsonData = readFile(source);
@@ -51,7 +53,7 @@ public class JsonProcessor {
     }
 
     // MODIFIES: s
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses student from JSON object and adds it to student s
     private void parseStudent(JSONObject jsonObject, Student s) {
         JSONArray jsonArray = jsonObject.getJSONArray("listOfCourses");
         for (Object json : jsonArray) {
@@ -60,7 +62,7 @@ public class JsonProcessor {
     }
 
     // MODIFIES: s
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // EFFECTS: parses course and adds it to the student s
     private void addCourse(Student s, JSONObject jsonObject) {
         Course c = new Course(jsonObject.getString("courseName"));
         for (Object json : jsonObject.getJSONArray("gradingGroups")) {
