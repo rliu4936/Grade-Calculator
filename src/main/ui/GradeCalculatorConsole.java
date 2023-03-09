@@ -40,7 +40,6 @@ public class GradeCalculatorConsole {
         run = true;
         sc = new Scanner(System.in);
         jp = new JsonProcessor(FILE_LOCATION);
-
         while (run) {
             printCommands();
             inputCommand();

@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 
 // Reads Json to Student and Writes Student to Json
 public class JsonProcessor {
-    private static int TAB = 4;
+    private static final int TAB = 4;
     private String source;
 
     // EFFECTS: constructs writer to write to destination file

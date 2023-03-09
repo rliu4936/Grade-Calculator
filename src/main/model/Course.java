@@ -17,14 +17,6 @@ public class Course {
         this.grade = 0;
     }
 
-    // REQUIRES: Object o must have a class of Course
-    // EFFECTS: returns true if the other course has the same name and the same grading groups as this
-    @Override
-    public boolean equals(Object o) {
-        Course c = (Course) o;
-        return courseName.equals(c.getCourseName()) && gradingGroups.equals(c.getGradingGroups());
-    }
-
     // MODIFIES: this
     // EFFECTS: Calculates the grade based on the grading groups
     public void calculateGrade() {
@@ -93,4 +85,11 @@ public class Course {
         return courseName;
     }
 
+    // REQUIRES: Object o must have a class of Course
+    // EFFECTS: returns true if the other course has the same name and the same grading groups as this
+    @Override
+    public boolean equals(Object o) {
+        Course c = (Course) o;
+        return courseName.equals(c.getCourseName()) && gradingGroups.equals(c.getGradingGroups());
+    }
 }

@@ -12,14 +12,6 @@ public class Student {
         listOfCourses = new ArrayList<Course>();
     }
 
-    //REQUIRES: Object o must have a class of Student
-    //EFFECTS: returns true if the other students has the same list of courses as this
-    @Override
-    public boolean equals(Object o) {
-        Student s = (Student) o;
-        return listOfCourses.equals(s.getListOfCourses());
-    }
-
     public ArrayList<Course> getListOfCourses() {
         return listOfCourses;
     }
@@ -50,9 +42,15 @@ public class Student {
     // EFFECTS: returns this student as a json object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-
         json.put("listOfCourses", listOfCourses);
-
         return json;
+    }
+
+    // REQUIRES: Object o must have a class of Student
+    // EFFECTS: returns true if the other students has the same list of courses as this
+    @Override
+    public boolean equals(Object o) {
+        Student s = (Student) o;
+        return listOfCourses.equals(s.getListOfCourses());
     }
 }

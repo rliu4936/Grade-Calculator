@@ -1,6 +1,5 @@
 package model;
 
-
 // Many Grading Groups make up a course. Each Grading Group has a name, weight, and grade
 public class GradingGroup {
     private String groupName;
@@ -11,16 +10,6 @@ public class GradingGroup {
         this.groupName = groupName;
         this.weight = weight;
         this.grade = grade;
-    }
-
-    //REQUIRES: Object o must have a class of GradingGroup
-    // EFFECTS: returns true if the other grading group has the same group name, weight, and grade as this
-    @Override
-    public boolean equals(Object o) {
-        GradingGroup gg = (GradingGroup) o;
-        return groupName.equals(gg.getGroupName())
-                && weight == gg.getWeight()
-                && grade == gg.getGrade();
     }
 
     public Integer getWeight() {
@@ -35,4 +24,11 @@ public class GradingGroup {
         return groupName;
     }
 
+    // REQUIRES: Object o must have a class of GradingGroup
+    // EFFECTS: returns true if the other grading group has the same group name, weight, and grade as this
+    @Override
+    public boolean equals(Object o) {
+        GradingGroup gg = (GradingGroup) o;
+        return groupName.equals(gg.getGroupName()) && weight == gg.getWeight() && grade == gg.getGrade();
+    }
 }
