@@ -1,18 +1,48 @@
-{"listOfCourses": [{
-    "courseName": "CPSC 210",
-    "lowestGrade": 17.6,
-    "highestGrade": 97.6,
-    "grade": 88,
-    "gradingGroups": [
-        {
-            "groupName": "MT1",
-            "grade": 84,
-            "weight": 15
-        },
-        {
-            "groupName": "Tickets",
-            "grade": 100,
-            "weight": 5
-        }
-    ]
-}]}
+{"listOfCourses": [
+    {
+        "courseName": "CPSC 210",
+        "lowestGrade": 47.95,
+        "highestGrade": 97.95,
+        "grade": 95.9,
+        "gradingGroups": [
+            {
+                "groupName": "Ticket",
+                "grade": 100,
+                "weight": 5
+            },
+            {
+                "groupName": "Lab",
+                "grade": 100,
+                "weight": 10
+            },
+            {
+                "groupName": "Project",
+                "grade": 101,
+                "weight": 20
+            },
+            {
+                "groupName": "MT1",
+                "grade": 85,
+                "weight": 15
+            }
+        ]
+    },
+    {
+        "courseName": "CPSC 121",
+        "lowestGrade": 26.6,
+        "highestGrade": 98.6,
+        "grade": 95,
+        "gradingGroups": [
+            {
+                "groupName": "MT1",
+                "grade": 85,
+                "weight": 14
+            },
+            {
+                "groupName": "Lab",
+                "grade": 105,
+                "weight": 14
+            }
+        ]
+    }
+]}
