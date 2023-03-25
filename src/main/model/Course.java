@@ -85,6 +85,14 @@ public class Course {
         return courseName;
     }
 
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public void setGradingGroups(ArrayList<GradingGroup> lgg) {
+        gradingGroups = lgg;
+    }
+
     // REQUIRES: Object o must have a class of Course
     // EFFECTS: returns true if the other course has the same name and the same grading groups as this
     @Override

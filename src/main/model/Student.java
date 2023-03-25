@@ -3,6 +3,7 @@ package model;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // A Student has a list of courses that they are currently taking or finished taking
 public class Student {
