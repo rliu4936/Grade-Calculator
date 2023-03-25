@@ -1,37 +1,123 @@
 {"listOfCourses": [
     {
-        "courseName": "MATH 101",
-        "lowestGrade": 82.5,
-        "highestGrade": 82.5,
-        "grade": 82.5,
+        "courseName": "CPSC 210",
+        "lowestGrade": 0,
+        "highestGrade": 0,
+        "grade": 0,
         "gradingGroups": [
             {
                 "groupName": "MT1",
-                "grade": 80,
-                "weight": 50
+                "grade": 84,
+                "weight": 15
             },
             {
                 "groupName": "MT2",
-                "grade": 85,
-                "weight": 50
+                "grade": 89,
+                "weight": 15
+            },
+            {
+                "groupName": "Project",
+                "grade": 101,
+                "weight": 20
+            },
+            {
+                "groupName": "Labs",
+                "grade": 100,
+                "weight": 10
+            },
+            {
+                "groupName": "Tickets",
+                "grade": 100,
+                "weight": 5
             }
         ]
     },
     {
-        "courseName": "MATH 102",
-        "lowestGrade": 72,
-        "highestGrade": 72,
-        "grade": 72,
+        "courseName": "CPSC 121",
+        "lowestGrade": 0,
+        "highestGrade": 0,
+        "grade": 0,
         "gradingGroups": [
             {
                 "groupName": "MT1",
-                "grade": 57,
-                "weight": 50
+                "grade": 84,
+                "weight": 14
             },
             {
                 "groupName": "MT2",
-                "grade": 87,
-                "weight": 50
+                "grade": 90,
+                "weight": 14
+            },
+            {
+                "groupName": "Quiz",
+                "grade": 100,
+                "weight": 4
+            },
+            {
+                "groupName": "Tutorial",
+                "grade": 100,
+                "weight": 3
+            },
+            {
+                "groupName": "Clicker",
+                "grade": 100,
+                "weight": 3
+            }
+        ]
+    },
+    {
+        "courseName": "MATH 200",
+        "lowestGrade": 0,
+        "highestGrade": 0,
+        "grade": 0,
+        "gradingGroups": [
+            {
+                "groupName": "MT1",
+                "grade": 80,
+                "weight": 20
+            },
+            {
+                "groupName": "MT2",
+                "grade": 0,
+                "weight": 0
+            },
+            {
+                "groupName": "FINAL",
+                "grade": 0,
+                "weight": 0
+            },
+            {
+                "groupName": "HW",
+                "grade": 100,
+                "weight": 10
+            }
+        ]
+    },
+    {
+        "courseName": "MATH 221",
+        "lowestGrade": 0,
+        "highestGrade": 0,
+        "grade": 0,
+        "gradingGroups": [
+            {
+                "groupName": "MT1",
+                "grade": 96,
+                "weight": 20
+            },
+            {
+                "groupName": "MT2",
+                "grade": 0,
+                "weight": 0
+            },
+            {
+                "groupName": "FINAL",
+                "grade": 100,
+                "weight": 0
+            },
+            {
+                "groupName": "HW",
+                "grade": 100,
+                "weight": 10
             }
         ]
     }

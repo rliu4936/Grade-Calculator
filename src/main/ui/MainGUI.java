@@ -29,12 +29,13 @@ public class MainGUI implements ActionListener {
         student = new Student();
         frame = new JFrame();
         topPanel = new JPanel();
+        frame.setMinimumSize(new Dimension(800, 450));
         frame.setPreferredSize(new Dimension(800, 450));
         topPanel.setPreferredSize(new Dimension(100, 100));
-        topPanel.setBackground(Color.red);
+        topPanel.setBackground(new Color(40,43,48));
         topPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
         centerPanel = new JPanel();
-        centerPanel.setBackground(Color.green);
+        centerPanel.setBackground(new Color(66,69,73));
 
         addCourseButton = new JButton("Add Course");
         addCourseButton.setPreferredSize(new Dimension(160, 90));
@@ -58,16 +59,22 @@ public class MainGUI implements ActionListener {
         frame.add(centerPanel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Grade Calculator");
-        frame.pack();
+
+        frame.invalidate();
+        frame.validate();
+        frame.repaint();
+
         frame.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addCourseButton) {
-            CourseGUI c = new CourseGUI(true);
+            CourseGUI c = new CourseGUI();
             centerPanel.add(c);
-            frame.pack();
+            frame.invalidate();
+            frame.validate();
+            frame.repaint();
         } else if (e.getSource() == saveButton) {
             System.out.println("save clicked");
             try {
@@ -77,19 +84,23 @@ public class MainGUI implements ActionListener {
             }
         } else if (e.getSource() == loadButton) {
             try {
-                student = jp.read();
+                Student dummy = jp.read();
+                student = new Student();
                 centerPanel.removeAll();
                 frame.revalidate();
                 frame.repaint();
-                for (Course c : student.getListOfCourses()) {
-                    CourseGUI cgui = new CourseGUI(false);
+                for (Course c : dummy.getListOfCourses()) {
+                    CourseGUI cgui = new CourseGUI();
                     cgui.setCourseName(c.getCourseName());
                     for (GradingGroup gg : c.getGradingGroups()) {
                         cgui.setMoreGradingGroup(gg.getGroupName(), gg.getWeight().toString(),
                                 gg.getGrade().toString());
                     }
                     centerPanel.add(cgui);
-                    frame.pack();
+                    cgui.updateCourse();
+                    frame.invalidate();
+                    frame.validate();
+                    frame.repaint();
                 }
             } catch (IOException error) {
                 System.out.println("Unable to read to file: " + "./data/student.json");
