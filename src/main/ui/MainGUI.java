@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class MainGUI implements ActionListener {
     static Student student;
@@ -24,6 +23,9 @@ public class MainGUI implements ActionListener {
     private JButton saveButton;
     private JButton loadButton;
 
+    static final int WIDTH = 800;
+    static final int HEIGHT = 800;
+
     JsonProcessor jp;
 
     public MainGUI() {
@@ -31,14 +33,31 @@ public class MainGUI implements ActionListener {
         student = new Student();
         frame = new JFrame();
         topPanel = new JPanel();
-        frame.setMinimumSize(new Dimension(800, 450));
-        frame.setPreferredSize(new Dimension(800, 450));
+        frame.setMinimumSize(new Dimension(WIDTH, HEIGHT));
+        frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         topPanel.setPreferredSize(new Dimension(100, 100));
         topPanel.setBackground(new Color(40,43,48));
         topPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
         centerPanel = new JPanel();
         centerPanel.setBackground(new Color(66,69,73));
 
+        addButtons();
+
+        centerPanel.setLayout(new FlowLayout());
+
+        frame.add(topPanel, BorderLayout.NORTH);
+        frame.add(centerPanel, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Grade Calculator");
+
+        frame.invalidate();
+        frame.validate();
+        frame.repaint();
+
+        showSplash();
+    }
+
+    public void addButtons() {
         addCourseButton = new JButton("Add Course");
         addCourseButton.setPreferredSize(new Dimension(160, 90));
         addCourseButton.addActionListener(this);
@@ -54,26 +73,16 @@ public class MainGUI implements ActionListener {
         topPanel.add(addCourseButton);
         topPanel.add(saveButton);
         topPanel.add(loadButton);
+    }
 
-        centerPanel.setLayout(new FlowLayout());
-
-        frame.add(topPanel, BorderLayout.NORTH);
-        frame.add(centerPanel, BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Grade Calculator");
-
-        frame.invalidate();
-        frame.validate();
-        frame.repaint();
-
-
+    public void showSplash() {
         splash = new JFrame();
         splash.setBackground(Color.BLUE);
         splash.invalidate();
         splash.validate();
         splash.repaint();
-        splash.setPreferredSize(new Dimension(800, 450));
-        splash.setMinimumSize(new Dimension(800, 450));
+        splash.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        splash.setMinimumSize(new Dimension(WIDTH, HEIGHT));
         splash.add(new JLabel(new ImageIcon("data/tobs.jpg")));
 
 
@@ -90,44 +99,56 @@ public class MainGUI implements ActionListener {
         splash.setVisible(false);
     }
 
+    public void addCourse() {
+        CourseGUI c = new CourseGUI();
+        centerPanel.add(c);
+        frame.invalidate();
+        frame.validate();
+        frame.repaint();
+    }
+
+    public void save() {
+        try {
+            jp.save(student);
+        } catch (FileNotFoundException error) {
+            System.out.println("Unable to write to file: " + "./data/student.json");
+        }
+    }
+
+    public void load() {
+        try {
+            Student dummy = jp.read();
+            student = new Student();
+            centerPanel.removeAll();
+            frame.revalidate();
+            frame.repaint();
+            for (Course c : dummy.getListOfCourses()) {
+                CourseGUI cgui = new CourseGUI();
+                cgui.setCourseName(c.getCourseName());
+                for (GradingGroup gg : c.getGradingGroups()) {
+                    cgui.setMoreGradingGroup(gg.getGroupName(), gg.getWeight().toString(),
+                            gg.getGrade().toString());
+                }
+                centerPanel.add(cgui);
+                cgui.updateCourse();
+                frame.invalidate();
+                frame.validate();
+                frame.repaint();
+            }
+        } catch (IOException error) {
+            System.out.println("Unable to read to file: " + "./data/student.json");
+        }
+    }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addCourseButton) {
-            CourseGUI c = new CourseGUI();
-            centerPanel.add(c);
-            frame.invalidate();
-            frame.validate();
-            frame.repaint();
+            addCourse();
         } else if (e.getSource() == saveButton) {
-            System.out.println("save clicked");
-            try {
-                jp.save(student);
-            } catch (FileNotFoundException error) {
-                System.out.println("Unable to write to file: " + "./data/student.json");
-            }
+            save();
         } else if (e.getSource() == loadButton) {
-            try {
-                Student dummy = jp.read();
-                student = new Student();
-                centerPanel.removeAll();
-                frame.revalidate();
-                frame.repaint();
-                for (Course c : dummy.getListOfCourses()) {
-                    CourseGUI cgui = new CourseGUI();
-                    cgui.setCourseName(c.getCourseName());
-                    for (GradingGroup gg : c.getGradingGroups()) {
-                        cgui.setMoreGradingGroup(gg.getGroupName(), gg.getWeight().toString(),
-                                gg.getGrade().toString());
-                    }
-                    centerPanel.add(cgui);
-                    cgui.updateCourse();
-                    frame.invalidate();
-                    frame.validate();
-                    frame.repaint();
-                }
-            } catch (IOException error) {
-                System.out.println("Unable to read to file: " + "./data/student.json");
-            }
+            load();
         }
     }
 
