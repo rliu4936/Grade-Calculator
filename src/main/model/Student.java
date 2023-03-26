@@ -47,6 +47,7 @@ public class Student {
         for (int i = 0; i < listOfCourses.size(); i++) {
             if (c == listOfCourses.get(i)) {
                 listOfCourses.remove(i);
+                i--;
             }
         }
     }
