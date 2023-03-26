@@ -15,6 +15,7 @@ public class CourseGUI extends JPanel implements ActionListener {
     JTextField courseName;
     JButton updateCourseButton;
     JButton moreGradingGroupButton;
+    JButton deleteCourseButton;
     List<JTextField> weightValues;
     List<JTextField> gradeValues;
     List<JTextField> gradingGroupNames;
@@ -32,6 +33,8 @@ public class CourseGUI extends JPanel implements ActionListener {
         moreGradingGroupButton.addActionListener(this);
         updateCourseButton = new JButton("Update");
         updateCourseButton.addActionListener(this);
+        deleteCourseButton = new JButton("Delete");
+        deleteCourseButton.addActionListener(this);
         weightedGrade = new JLabel("N/A");
         lowestGrade = new JLabel("N/A");
         highestGrade = new JLabel("N/A");
@@ -42,6 +45,7 @@ public class CourseGUI extends JPanel implements ActionListener {
         JPanel row = new JPanel();
         row.add(moreGradingGroupButton);
         row.add(updateCourseButton);
+        row.add(deleteCourseButton);
         add(row);
         add(weightedGrade);
         add(lowestGrade);
@@ -110,6 +114,10 @@ public class CourseGUI extends JPanel implements ActionListener {
         courseName.setText(str);
     }
 
+    public void deleteCourse() {
+        MainGUI.student.deleteCourse(course);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == moreGradingGroupButton) {
@@ -120,6 +128,10 @@ public class CourseGUI extends JPanel implements ActionListener {
         }
         if (e.getSource() == updateCourseButton) {
             updateCourse();
+        }
+        if (e.getSource() == deleteCourseButton) {
+            deleteCourse();
+            setVisible(false);
         }
     }
 }

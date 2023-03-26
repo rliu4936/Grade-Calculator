@@ -40,6 +40,18 @@ public class Student {
         listOfCourses.remove(i);
     }
 
+    // REQUIRES: a course in listOfCourses
+    // MODIFIES: this
+    // EFFECTS: Removes a course from student
+    public void deleteCourse(Course c) {
+        for (int i = 0; i < listOfCourses.size(); i++) {
+            if (c == listOfCourses.get(i)) {
+                listOfCourses.remove(i);
+                break;
+            }
+        }
+    }
+
     // EFFECTS: returns this student as a json object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
