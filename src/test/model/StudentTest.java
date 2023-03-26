@@ -26,12 +26,14 @@ public class StudentTest {
 
     @Test
     void testDeleteCourseCourse() {
-        Course c = new Course("CPSC 110");
-        s.addCourse(c);
-        assertEquals(1, s.getListOfCourses().size());
+        Course c1 = new Course("CPSC 110");
+        Course c2 = new Course("CPSC 121");
+        s.addCourse(c1);
+        s.addCourse(c2);
+        assertEquals(2, s.getListOfCourses().size());
 
-        s.deleteCourse(c);
-        assertEquals(0, s.getListOfCourses().size());
+        s.deleteCourse(c1);
+        assertEquals(1, s.getListOfCourses().size());
     }
 
     @Test
