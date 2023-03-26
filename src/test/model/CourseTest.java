@@ -2,6 +2,8 @@ package model;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -91,5 +93,14 @@ public class CourseTest {
         Course c11 = new Course("MATH 111");
         c11.addGradingGroup("Final", 100, 45);
         assertEquals("F", c11.findLetterGrade());
+    }
+
+    @Test
+    public void setTest() {
+        Course c = new Course("MATH");
+        c.setCourseName("CPSC");
+        c.setGradingGroups(new ArrayList<>());
+        assertEquals("CPSC", c.getCourseName());
+        assertEquals(new ArrayList<>(), c.getGradingGroups());
     }
 }

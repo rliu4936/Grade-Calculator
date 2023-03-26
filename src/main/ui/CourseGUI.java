@@ -43,13 +43,12 @@ public class CourseGUI extends JPanel implements ActionListener {
         row.add(moreGradingGroupButton);
         row.add(updateCourseButton);
         add(row);
-        add(weightedGrade, BorderLayout.WEST);
-        add(lowestGrade, BorderLayout.WEST);
-        add(highestGrade, FlowLayout.LEADING);
+        add(weightedGrade);
+        add(lowestGrade);
+        add(highestGrade);
 
         setVisible(true);
         MainGUI.student.addCourse(course);
-
     }
 
     public void moreGradingGroup() {
