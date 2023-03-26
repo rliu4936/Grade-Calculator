@@ -40,8 +40,14 @@ public class CourseGUI extends JPanel implements ActionListener {
         highestGrade = new JLabel("N/A");
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        add(courseName);
+        setupLabels();
 
+        setVisible(true);
+        MainGUI.student.addCourse(course);
+    }
+
+    public void setupLabels() {
+        add(courseName);
         JPanel row = new JPanel();
         row.add(moreGradingGroupButton);
         row.add(updateCourseButton);
@@ -50,9 +56,6 @@ public class CourseGUI extends JPanel implements ActionListener {
         add(weightedGrade);
         add(lowestGrade);
         add(highestGrade);
-
-        setVisible(true);
-        MainGUI.student.addCourse(course);
     }
 
     public void moreGradingGroup() {
