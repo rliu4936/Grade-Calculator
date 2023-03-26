@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class MainGUI implements ActionListener {
     static Student student;
@@ -18,6 +19,7 @@ public class MainGUI implements ActionListener {
     private JPanel centerPanel;
 
     private static JFrame frame;
+    private static JFrame splash;
     private JButton addCourseButton;
     private JButton saveButton;
     private JButton loadButton;
@@ -64,7 +66,28 @@ public class MainGUI implements ActionListener {
         frame.validate();
         frame.repaint();
 
+
+        splash = new JFrame();
+        splash.setBackground(Color.BLUE);
+        splash.invalidate();
+        splash.validate();
+        splash.repaint();
+        splash.setPreferredSize(new Dimension(800, 450));
+        splash.setMinimumSize(new Dimension(800, 450));
+        splash.add(new JLabel(new ImageIcon("data/tobs.jpg")));
+
+
+        frame.setVisible(false);
+        splash.setVisible(true);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         frame.setVisible(true);
+        splash.setVisible(false);
     }
 
     @Override
