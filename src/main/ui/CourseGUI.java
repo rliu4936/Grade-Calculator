@@ -1,7 +1,6 @@
 package ui;
 
 import model.Course;
-import model.GradingGroup;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,18 +25,24 @@ public class CourseGUI extends JPanel implements ActionListener {
     public CourseGUI() {
         courseName = new JTextField("Course Name");
         course = new Course("");
+
         weightValues = new ArrayList<>();
         gradeValues = new ArrayList<>();
         gradingGroupNames = new ArrayList<>();
+
         moreGradingGroupButton = new JButton("Add Grading Group");
         moreGradingGroupButton.addActionListener(this);
+
         updateCourseButton = new JButton("Update");
         updateCourseButton.addActionListener(this);
+
         deleteCourseButton = new JButton("Delete");
         deleteCourseButton.addActionListener(this);
+
         weightedGrade = new JLabel("N/A");
         lowestGrade = new JLabel("N/A");
         highestGrade = new JLabel("N/A");
+
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         setupLabels();
@@ -58,27 +63,7 @@ public class CourseGUI extends JPanel implements ActionListener {
         add(highestGrade);
     }
 
-    public void moreGradingGroup() {
-        JPanel row = new JPanel();
-        JTextField weightValue = new JTextField("Weight");
-        JTextField gradeValue = new JTextField("Grade");
-        JTextField gradingGroupName = new JTextField("Grading Group Name");
-        weightValue.setPreferredSize(new Dimension(50, 20));
-        gradeValue.setPreferredSize(new Dimension(50, 20));
-        gradingGroupName.setPreferredSize(new Dimension(100, 20));
-
-        weightValues.add(weightValue);
-        gradeValues.add(gradeValue);
-        gradingGroupNames.add(gradingGroupName);
-
-        row.add(gradingGroupName);
-        row.add(gradeValue);
-        row.add(weightValue);
-        this.add(row);
-        row.setVisible(true);
-    }
-
-    public void setMoreGradingGroup(String inputGroupName, String weight, String grade) {
+    public void moreGradingGroup(String inputGroupName, String weight, String grade) {
         JPanel row = new JPanel();
         JTextField weightValue = new JTextField(weight);
         JTextField gradeValue = new JTextField(grade);
@@ -124,10 +109,8 @@ public class CourseGUI extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == moreGradingGroupButton) {
-            moreGradingGroup();
-            MainGUI.getFrame().invalidate();
-            MainGUI.getFrame().validate();
-            MainGUI.getFrame().repaint();
+            moreGradingGroup("Name", "Weight", "Grade");
+            MainGUI.refresh();
         }
         if (e.getSource() == updateCourseButton) {
             updateCourse();

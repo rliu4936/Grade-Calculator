@@ -26,3 +26,11 @@ have to **manually** input the grades, weighting, and the math formulas for the 
 - As a user, I want to assign weighting and a grade to a grading group
 - As a user, I want to be able to save the courses and grades that I entered (if I so choose)
 - As a user, I want to be able to be able to load my courses and grades from file (if I so choose)
+
+# Instructions for Grader
+
+- You can generate the first required action related to adding Xs to a Y by clicking "Add Course"
+- You can generate the second required action related to adding Xs to a Y by clicking "Delete"
+- You can locate my visual component by starting the application (splash screen)
+- You can save the state of my application by clicking "Save"
+- You can reload the state of my application by clicking "Load"
