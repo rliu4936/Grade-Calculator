@@ -33,5 +33,33 @@
         "highestGrade": 0,
         "grade": 0,
         "gradingGroups": []
+    },
+    {
+        "courseName": "",
+        "lowestGrade": 0,
+        "highestGrade": 0,
+        "grade": 0,
+        "gradingGroups": []
+    },
+    {
+        "courseName": "",
+        "lowestGrade": 0,
+        "highestGrade": 0,
+        "grade": 0,
+        "gradingGroups": []
+    },
+    {
+        "courseName": "",
+        "lowestGrade": 0,
+        "highestGrade": 0,
+        "grade": 0,
+        "gradingGroups": []
+    },
+    {
+        "courseName": "",
+        "lowestGrade": 0,
+        "highestGrade": 0,
+        "grade": 0,
+        "gradingGroups": []
     }
 ]}

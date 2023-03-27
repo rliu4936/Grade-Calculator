@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// MainGUI is the main GUI window
 public class MainGUI implements ActionListener {
     static final String FILE = "./data/student.json";
     static final String SPLASH = "./data/splash.png";
@@ -35,6 +36,8 @@ public class MainGUI implements ActionListener {
 
     JsonProcessor jp;
 
+    // MODIFIES: this
+    // EFFECTS: MainGUI constructor that initializes all fields
     public MainGUI() {
         jp = new JsonProcessor(FILE);
         student = new Student();
@@ -62,6 +65,8 @@ public class MainGUI implements ActionListener {
         showSplash();
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds all the buttons to the GUI
     public void addButtons() {
         addCourseButton = new JButton("Add Course");
         addCourseButton.setPreferredSize(TOP_BUTTON_SIZE);
@@ -80,6 +85,7 @@ public class MainGUI implements ActionListener {
         topPanel.add(loadButton);
     }
 
+    // EFFECTS: Shows the splash screen for 1 second at the beginning of the application
     public void showSplash() {
         splash = new JFrame();
         splash.setBackground(Color.BLUE);
@@ -101,12 +107,15 @@ public class MainGUI implements ActionListener {
         splash.setVisible(false);
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds a course to the student
     public void addCourse() {
         CourseGUI c = new CourseGUI();
         centerPanel.add(c);
         refresh();
     }
 
+    // EFFECTS: saves the student saved to file
     public void save() {
         try {
             jp.save(student);
@@ -115,6 +124,8 @@ public class MainGUI implements ActionListener {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads the student saved in file
     public void load() {
         try {
             Student dummy = jp.read();
@@ -136,12 +147,15 @@ public class MainGUI implements ActionListener {
         }
     }
 
+    // EFFECTS: refreshes the GUI
     public static void refresh() {
         frame.invalidate();
         frame.validate();
         frame.repaint();
     }
 
+    // MODIFIES: this
+    // EFFECTS: Processes button clicks
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addCourseButton) {

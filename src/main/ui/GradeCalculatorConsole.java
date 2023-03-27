@@ -80,6 +80,8 @@ public class GradeCalculatorConsole {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads the student saved in file
     private static void readFile() {
         try {
             student = jp.read();
@@ -89,6 +91,7 @@ public class GradeCalculatorConsole {
         }
     }
 
+    // EFFECTS: saves the student saved to file
     private static void saveFile() {
         try {
             jp.save(student);
