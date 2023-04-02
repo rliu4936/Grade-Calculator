@@ -174,10 +174,7 @@ public class MainGUI implements ActionListener, WindowListener {
         }
     }
 
-    @Override
-    public void windowOpened(WindowEvent e) {
-    }
-
+    // EFFECTS: prints the logs when the window is closing
     @Override
     public void windowClosing(WindowEvent e) {
         for (Event event : EventLog.getInstance()) {
@@ -185,23 +182,33 @@ public class MainGUI implements ActionListener, WindowListener {
         }
     }
 
+    // EFFECTS: no effects
     @Override
     public void windowClosed(WindowEvent e) {
     }
 
+    // EFFECTS: no effects
     @Override
     public void windowIconified(WindowEvent e) {
     }
 
+    // EFFECTS: no effects
     @Override
     public void windowDeiconified(WindowEvent e) {
     }
 
+    // EFFECTS: no effects
     @Override
     public void windowActivated(WindowEvent e) {
     }
 
+    // EFFECTS: no effects
     @Override
     public void windowDeactivated(WindowEvent e) {
+    }
+
+    // EFFECTS: no effects
+    @Override
+    public void windowOpened(WindowEvent e) {
     }
 }
