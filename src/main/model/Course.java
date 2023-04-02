@@ -86,7 +86,9 @@ public class Course {
     }
 
     public void setCourseName(String courseName) {
+        String temp = this.courseName;
         this.courseName = courseName;
+        EventLog.getInstance().logEvent(new Event(temp + " is renamed to " + courseName));
     }
 
     public void setGradingGroups(ArrayList<GradingGroup> lgg) {

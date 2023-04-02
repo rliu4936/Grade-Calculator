@@ -21,6 +21,7 @@ public class Student {
     // EFFECTS: Adds a course to the listofCourses
     public void addCourse(Course c) {
         listOfCourses.add(c);
+        EventLog.getInstance().logEvent(new Event("Course Name is added to student"));
     }
 
     // EFFECTS: Calculates the average mark of a course
@@ -37,7 +38,9 @@ public class Student {
     // MODIFIES: this
     // EFFECTS: Removes a course from student
     public void deleteCourse(int i) {
+        String temp = listOfCourses.get(i).getCourseName();
         listOfCourses.remove(i);
+        EventLog.getInstance().logEvent(new Event(temp + " is removed from student"));
     }
 
     // REQUIRES: a course in listOfCourses
@@ -50,6 +53,7 @@ public class Student {
                 i--;
             }
         }
+        EventLog.getInstance().logEvent(new Event(c.getCourseName() + " is removed from student"));
     }
 
     // EFFECTS: returns this student as a json object

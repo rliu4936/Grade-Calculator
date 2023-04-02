@@ -34,3 +34,24 @@ have to **manually** input the grades, weighting, and the math formulas for the 
 - You can locate my visual component by starting the application (splash screen)
 - You can save the state of my application by clicking "Save"
 - You can reload the state of my application by clicking "Load"
+
+# Phase 4: Task 2
+Sun Apr 02 14:51:37 PDT 2023
+
+Course Name is added to student
+
+Sun Apr 02 14:51:42 PDT 2023
+
+Course Name is changed to CPSC 210
+
+Sun Apr 02 14:51:43 PDT 2023
+
+CPSC 210 is removed from student
+
+# Phase 4: Task 3
+
+If I had more time to work on the project, I would try to make JsonProcessor a field of Student instead of the two 
+different user interfaces, because this would decrease coupling. MainGUI has code for 
+the GUI, JsonProcessor, and Student. I would try to split MainGUI into two classes. One for setting up the JFrame,
+and one called StudentGUI representing a Student. Splitting MainGUI into two classes would increase cohesion. I would
+also split CourseGUI, into CourseGUI and GradingGroupGUI. This would also increase cohesion.

@@ -1,19 +1,20 @@
 package ui;
 
-import model.Course;
-import model.GradingGroup;
-import model.Student;
+import model.*;
+import model.Event;
 import persistence.JsonProcessor;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 // MainGUI is the main GUI window
-public class MainGUI implements ActionListener {
+public class MainGUI implements ActionListener, WindowListener {
     static final String FILE = "./data/student.json";
     static final String SPLASH = "./data/splash.png";
     static Student student;
@@ -60,9 +61,15 @@ public class MainGUI implements ActionListener {
         frame.add(centerPanel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Grade Calculator");
+        frame.addWindowListener(this);
 
         refresh();
         showSplash();
+    }
+
+    // EFFECTS: Runs the GUI
+    public static void main(String[] args) {
+        new MainGUI();
     }
 
     // MODIFIES: this
@@ -165,5 +172,36 @@ public class MainGUI implements ActionListener {
         } else if (e.getSource() == loadButton) {
             load();
         }
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        for (Event event : EventLog.getInstance()) {
+            System.out.println(event.toString());
+        }
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
     }
 }

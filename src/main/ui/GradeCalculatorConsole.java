@@ -33,6 +33,11 @@ public class GradeCalculatorConsole {
     static Student student;
     static JsonProcessor jp;
 
+    // EFFECTS: Runs the console
+    public static void main(String[] args) {
+        new GradeCalculatorConsole();
+    }
+
     // MODIFIES: this
     // EFFECTS: Initialize a new Grade Calculator, and processes user input
     public GradeCalculatorConsole() {

@@ -27,7 +27,7 @@ public class CourseGUI extends JPanel implements ActionListener {
     // EFFECTS: CourseGUI constructor that initializes all fields
     public CourseGUI() {
         courseName = new JTextField("Course Name");
-        course = new Course("");
+        course = new Course("Course Name");
 
         weightValues = new ArrayList<>();
         gradeValues = new ArrayList<>();
