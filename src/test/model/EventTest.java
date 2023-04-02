@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  * Unit tests for the Event class
@@ -34,5 +35,18 @@ public class EventTest {
     @Test
     public void testToString() {
         assertEquals(d.toString() + "\n" + "Sensor open at door", e.toString());
+    }
+
+    @Test
+    public void testEqual() {
+        assertFalse(e.equals(null));
+        assertFalse(e.equals(""));
+    }
+
+    @Test
+    public void testHashCode() {
+        e = new Event("Sensor open at door");
+        e.getDate().setTime(100);
+        assertEquals(-195809473, e.hashCode());
     }
 }
