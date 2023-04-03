@@ -36,15 +36,22 @@ have to **manually** input the grades, weighting, and the math formulas for the 
 - You can reload the state of my application by clicking "Load"
 
 # Phase 4: Task 2
-- Mon Apr 03 11:58:24 PDT 2023
+- Mon Apr 03 12:20:05 PDT 2023
 - Course Name is added to student
-- Mon Apr 03 11:58:35 PDT 2023
+- 
+- Mon Apr 03 12:20:14 PDT 2023
 - Course Name is renamed to CPSC 210
-- Mon Apr 03 11:58:38 PDT 2023
+- 
+- Mon Apr 03 12:20:15 PDT 2023
 - Course Name is added to student
-- Mon Apr 03 11:58:42 PDT 2023
+- 
+- Mon Apr 03 12:20:21 PDT 2023
 - Course Name is renamed to CPSC 121
-- Mon Apr 03 11:58:45 PDT 2023
+- 
+- Mon Apr 03 12:20:28 PDT 2023
+- CPSC 210 is removed from student
+-
+- Mon Apr 03 12:20:28 PDT 2023
 - CPSC 121 is removed from student
 
 # Phase 4: Task 3
