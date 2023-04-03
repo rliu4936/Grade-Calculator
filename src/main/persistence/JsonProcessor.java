@@ -65,10 +65,10 @@ public class JsonProcessor {
     // EFFECTS: parses course and adds it to the student s
     private void addCourse(Student s, JSONObject jsonObject) {
         Course c = new Course(jsonObject.getString("courseName"));
+        s.addCourse(c);
         for (Object json : jsonObject.getJSONArray("gradingGroups")) {
             JSONObject gg = (JSONObject) json;
             c.addGradingGroup(gg.getString("groupName"), gg.getInt("weight"), gg.getInt("grade"));
         }
-        s.addCourse(c);
     }
 }

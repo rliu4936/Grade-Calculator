@@ -21,7 +21,7 @@ public class Student {
     // EFFECTS: Adds a course to the listofCourses
     public void addCourse(Course c) {
         listOfCourses.add(c);
-        EventLog.getInstance().logEvent(new Event("Course Name is added to student"));
+        EventLog.getInstance().logEvent(new Event(c.getCourseName() + " is added to student"));
     }
 
     // EFFECTS: Calculates the average mark of a course

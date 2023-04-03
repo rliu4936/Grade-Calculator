@@ -102,8 +102,8 @@ public class CourseGUI extends JPanel implements ActionListener {
         weightedGrade.setText("Grade:" + Math.round(c.getGrade() * 100) / 100.0);
         highestGrade.setText("Highest:" + Math.round(c.getHighestGrade() * 100) / 100.0);
         lowestGrade.setText("Lowest:" + Math.round(c.getLowestGrade() * 100) / 100.0);
-        course.setGradingGroups(c.getGradingGroups());
         course.setCourseName(courseName.getText());
+        course.setGradingGroups(c.getGradingGroups());
     }
 
     // MODIFIES: this
