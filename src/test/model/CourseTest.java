@@ -102,5 +102,8 @@ public class CourseTest {
         c.setGradingGroups(new ArrayList<>());
         assertEquals("CPSC", c.getCourseName());
         assertEquals(new ArrayList<>(), c.getGradingGroups());
+
+        c.setCourseName("CPSC");
+        assertEquals("CPSC", c.getCourseName());
     }
 }
