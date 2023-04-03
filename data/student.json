@@ -92,14 +92,9 @@
         "grade": 0,
         "gradingGroups": [
             {
-                "groupName": "MT1",
-                "grade": 80,
-                "weight": 20
-            },
-            {
-                "groupName": "MT2",
-                "grade": 0,
-                "weight": 0
+                "groupName": "MTs",
+                "grade": 95,
+                "weight": 30
             },
             {
                 "groupName": "Final",
