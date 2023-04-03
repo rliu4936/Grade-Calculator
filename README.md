@@ -60,4 +60,5 @@ If I had more time to work on the project, I would make JsonProcessor a field of
 user interfaces, because this would decrease coupling. Currently, MainGUI has code for handling 
 the JFrame/GUI, JsonProcessor, and Student. I would try to split MainGUI into two classes. One for setting up the JFrame,
 and one called StudentGUI representing a Student. Splitting MainGUI into two classes would increase cohesion. I would
-also split CourseGUI, into CourseGUI and GradingGroupGUI. This would also increase cohesion.
+also split CourseGUI, into CourseGUI and GradingGroupGUI. This would also increase cohesion. I would also look into
+changing Student to implement interable<Course>, because Student is basically just a list of courses.
