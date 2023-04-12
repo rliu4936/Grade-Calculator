@@ -22,7 +22,7 @@
             },
             {
                 "groupName": "Projects",
-                "grade": 101,
+                "grade": 102,
                 "weight": 20
             },
             {
@@ -50,7 +50,7 @@
             },
             {
                 "groupName": "MT2",
-                "grade": 90,
+                "grade": 96,
                 "weight": 14
             },
             {
@@ -60,7 +60,7 @@
             },
             {
                 "groupName": "Labs",
-                "grade": 109,
+                "grade": 110,
                 "weight": 14
             },
             {
@@ -80,8 +80,8 @@
             },
             {
                 "groupName": "Assignments",
-                "grade": 100,
-                "weight": 0
+                "grade": 96,
+                "weight": 14
             }
         ]
     },
@@ -121,8 +121,8 @@
             },
             {
                 "groupName": "MT2",
-                "grade": 0,
-                "weight": 0
+                "grade": 100,
+                "weight": 20
             },
             {
                 "groupName": "Final",
