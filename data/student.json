@@ -32,8 +32,8 @@
             },
             {
                 "groupName": "Final",
-                "grade": 99,
-                "weight": 0
+                "grade": 81,
+                "weight": 35
             }
         ]
     },
@@ -45,7 +45,7 @@
         "gradingGroups": [
             {
                 "groupName": "MT1",
-                "grade": 84,
+                "grade": 85,
                 "weight": 14
             },
             {
@@ -75,8 +75,8 @@
             },
             {
                 "groupName": "Final",
-                "grade": 100,
-                "weight": 0
+                "grade": 76,
+                "weight": 34
             },
             {
                 "groupName": "Assignments",
@@ -98,8 +98,8 @@
             },
             {
                 "groupName": "Final",
-                "grade": 0,
-                "weight": 0
+                "grade": 85,
+                "weight": 60
             },
             {
                 "groupName": "HW",
@@ -126,8 +126,8 @@
             },
             {
                 "groupName": "Final",
-                "grade": 0,
-                "weight": 0
+                "grade": 81,
+                "weight": 50
             },
             {
                 "groupName": "HW",
